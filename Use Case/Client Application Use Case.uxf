@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="11.5.1">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.umlet.element.Actor</type>
+    <coordinates>
+      <x>0</x>
+      <y>360</y>
+      <w>100</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>User</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>110</x>
+      <y>60</y>
+      <w>1020</w>
+      <h>630</h>
+    </coordinates>
+    <panel_attributes>Client Application</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.UseCase</type>
+    <coordinates>
+      <x>560</x>
+      <y>270</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>View Gas
+Tank Amount</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.UseCase</type>
+    <coordinates>
+      <x>360</x>
+      <y>380</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Select Existing
+Vehicle</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.UseCase</type>
+    <coordinates>
+      <x>150</x>
+      <y>540</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Register User
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.UseCase</type>
+    <coordinates>
+      <x>560</x>
+      <y>340</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Fill Gas Tank</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.UseCase</type>
+    <coordinates>
+      <x>560</x>
+      <y>390</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Manually Adjust
+Tank Level</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.UseCase</type>
+    <coordinates>
+      <x>560</x>
+      <y>480</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Add Mileage</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.UseCase</type>
+    <coordinates>
+      <x>750</x>
+      <y>390</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Adjust
+Gas Level
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>450</x>
+      <y>260</y>
+      <w>130</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;extends&gt;&gt;</panel_attributes>
+    <additional_attributes>30;140;110;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>450</x>
+      <y>330</y>
+      <w>130</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;extends&gt;&gt;</panel_attributes>
+    <additional_attributes>30;70;110;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>450</x>
+      <y>360</y>
+      <w>130</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;extends&gt;&gt;</panel_attributes>
+    <additional_attributes>30;40;110;50</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>450</x>
+      <y>370</y>
+      <w>130</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;extends&gt;&gt;</panel_attributes>
+    <additional_attributes>30;30;110;130</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>640</x>
+      <y>360</y>
+      <w>134</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;include&gt;&gt;</panel_attributes>
+    <additional_attributes>110;50;40;50</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>640</x>
+      <y>330</y>
+      <w>134</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;include&gt;&gt;</panel_attributes>
+    <additional_attributes>110;80;40;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.UseCase</type>
+    <coordinates>
+      <x>370</x>
+      <y>130</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Add Vehicle</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.UseCase</type>
+    <coordinates>
+      <x>370</x>
+      <y>190</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Edit Vehicle</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.UseCase</type>
+    <coordinates>
+      <x>560</x>
+      <y>190</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Select Tank
+Size</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.UseCase</type>
+    <coordinates>
+      <x>730</x>
+      <y>150</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Select Tank From
+Known Vehicle
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.UseCase</type>
+    <coordinates>
+      <x>730</x>
+      <y>220</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Select custom
+Gas Tank Size
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>630</x>
+      <y>180</y>
+      <w>140</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;extends&gt;&gt;</panel_attributes>
+    <additional_attributes>50;30;100;60</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>630</x>
+      <y>140</y>
+      <w>140</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;extends&gt;&gt;</panel_attributes>
+    <additional_attributes>50;70;100;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>450</x>
+      <y>160</y>
+      <w>134</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;include&gt;&gt;</panel_attributes>
+    <additional_attributes>110;50;40;50</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>450</x>
+      <y>120</y>
+      <w>134</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;include&gt;&gt;</panel_attributes>
+    <additional_attributes>110;90;40;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.UseCase</type>
+    <coordinates>
+      <x>560</x>
+      <y>130</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Enter Current
+Odometer</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>450</x>
+      <y>100</y>
+      <w>134</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;include&gt;&gt;</panel_attributes>
+    <additional_attributes>110;50;40;50</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.UseCase</type>
+    <coordinates>
+      <x>360</x>
+      <y>510</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Remove Vehicle</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.UseCase</type>
+    <coordinates>
+      <x>150</x>
+      <y>270</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Login</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>240</x>
+      <y>180</y>
+      <w>150</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;extends&gt;&gt;</panel_attributes>
+    <additional_attributes>30;110;130;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>240</x>
+      <y>120</y>
+      <w>150</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;extends&gt;&gt;</panel_attributes>
+    <additional_attributes>30;170;130;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>240</x>
+      <y>260</y>
+      <w>140</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;extends&gt;&gt;</panel_attributes>
+    <additional_attributes>30;30;120;140</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>240</x>
+      <y>260</y>
+      <w>140</w>
+      <h>290</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;extends&gt;&gt;</panel_attributes>
+    <additional_attributes>30;30;120;270</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>50</x>
+      <y>350</y>
+      <w>120</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>30;30;100;210</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>50</x>
+      <y>260</y>
+      <w>120</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>30;120;100;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>640</x>
+      <y>380</y>
+      <w>134</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;include&gt;&gt;</panel_attributes>
+    <additional_attributes>110;30;40;120</additional_attributes>
+  </element>
+</diagram>
