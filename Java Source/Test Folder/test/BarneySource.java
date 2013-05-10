@@ -1,24 +1,22 @@
 package test;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.net.Socket;
-import java.net.UnknownHostException;
+import java.io.*;
+import java.net.*;
 
 public class BarneySource {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
+		Socket toServer;
+		OutputStream stream;
+		
 		try {
-			Socket toServer = new Socket ("127.0.0.1", 9292);
+			toServer = new Socket ("127.0.0.1", 9292);
+			stream = toServer.getOutputStream();
+			String send = "Maybe it will work";
+			byte[] b = send.getBytes();
 			
-			PrintWriter a = new PrintWriter(toServer.getOutputStream(), true);
-			a.println("It worked like a charm");
-			
-			a.close();
-			
+			stream.write(b);
+			stream.flush();
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
