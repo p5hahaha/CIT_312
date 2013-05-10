@@ -46,14 +46,14 @@
 	<key>Creator</key>
 	<string>Eleventyseven</string>
 	<key>DisplayScale</key>
-	<string>1 0/72 in = 1 0/72 in</string>
+	<string>1 0/72 in = 1.0000 in</string>
 	<key>GraphDocumentVersion</key>
 	<integer>8</integer>
 	<key>GraphicsList</key>
 	<array>
 		<dict>
 			<key>Bounds</key>
-			<string>{{304.96546936035156, 146.5}, {67, 14}}</string>
+			<string>{{304.83336290635998, 149.34809818411625}, {67, 14}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -117,8 +117,8 @@
 			<integer>25</integer>
 			<key>Points</key>
 			<array>
-				<string>{270.68952683747727, 173.17319160610268}</string>
-				<string>{406.24141188322585, 133.82680839389732}</string>
+				<string>{271.51438186732599, 174.06472418655363}</string>
+				<string>{405.15234394539397, 138.63147218167887}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -144,7 +144,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{304.95814277318522, 209.25814342509915}, {67, 14}}</string>
+			<string>{{304.96501138728354, 209.25051078009102}, {67, 14}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>FitText</key>
@@ -208,8 +208,8 @@
 			<integer>15</integer>
 			<key>Points</key>
 			<array>
-				<string>{271.34873466977558, 198.12095353190608}</string>
-				<string>{405.56755087659485, 234.39533331829219}</string>
+				<string>{271.35148767942235, 198.11789642798698}</string>
+				<string>{405.57853509514467, 234.38312513219503}</string>
 			</array>
 			<key>Style</key>
 			<dict>
@@ -259,7 +259,7 @@
 		</dict>
 		<dict>
 			<key>Bounds</key>
-			<string>{{400.93093872070312, 94}, {99, 54}}</string>
+			<string>{{400.93093872070312, 100}, {99, 54}}</string>
 			<key>Class</key>
 			<string>ShapedGraphic</string>
 			<key>ID</key>
@@ -713,7 +713,7 @@
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2013-05-06 18:04:12 +0000</string>
+	<string>2013-05-08 18:20:33 +0000</string>
 	<key>Modifier</key>
 	<string>Eleventyseven</string>
 	<key>NotesVisible</key>
