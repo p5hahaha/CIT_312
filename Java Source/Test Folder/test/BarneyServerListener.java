@@ -5,31 +5,33 @@ import java.net.*;
 
 public class BarneyServerListener {
 
-	/**
-	 * @param args
-	 */
 	@SuppressWarnings("null")
 	public static void main(String[] args) {
 		ServerSocket ss;
 		Socket s;
-		InputStream in;
+		
+		InputStream stream;
+		
 		String fromClient = new String();
-		byte[] b = null;
+		byte[] b = new byte[100];
 		
 		try {
 			ss = new ServerSocket(9292);
 			s = ss.accept();
-			while(fromClient == null)
-			{
-				in = s.getInputStream();
-				in.read(b);
-				fromClient = b.toString();
-			}
 			
+			stream = s.getInputStream();
+			stream.read(b);
+			
+			fromClient = new String(b);
+			
+			stream.close();
+			s.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
 		System.out.println(fromClient);
 		
 	}
