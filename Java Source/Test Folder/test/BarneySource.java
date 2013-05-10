@@ -12,7 +12,7 @@ public class BarneySource {
 		try {
 			toServer = new Socket ("127.0.0.1", 9292);
 			stream = toServer.getOutputStream();
-			String send = "Maybe it will work";
+			String send = "AAA BBB END";
 			byte[] b = send.getBytes();
 			
 			stream.write(b);

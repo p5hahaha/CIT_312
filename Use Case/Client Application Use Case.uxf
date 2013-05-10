@@ -15,8 +15,8 @@
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>300</x>
-      <y>130</y>
+      <x>320</x>
+      <y>280</y>
       <w>800</w>
       <h>630</h>
     </coordinates>
@@ -26,8 +26,8 @@
   <element>
     <type>com.umlet.element.UseCase</type>
     <coordinates>
-      <x>380</x>
-      <y>200</y>
+      <x>350</x>
+      <y>390</y>
       <w>120</w>
       <h>40</h>
     </coordinates>
@@ -38,8 +38,8 @@ Tank Amount</panel_attributes>
   <element>
     <type>com.umlet.element.UseCase</type>
     <coordinates>
-      <x>570</x>
-      <y>300</y>
+      <x>640</x>
+      <y>400</y>
       <w>120</w>
       <h>40</h>
     </coordinates>
@@ -50,8 +50,8 @@ Vehicle</panel_attributes>
   <element>
     <type>com.umlet.element.UseCase</type>
     <coordinates>
-      <x>970</x>
-      <y>410</y>
+      <x>330</x>
+      <y>750</y>
       <w>120</w>
       <h>40</h>
     </coordinates>
@@ -62,8 +62,8 @@ Vehicle</panel_attributes>
   <element>
     <type>com.umlet.element.UseCase</type>
     <coordinates>
-      <x>380</x>
-      <y>240</y>
+      <x>350</x>
+      <y>430</y>
       <w>120</w>
       <h>40</h>
     </coordinates>
@@ -73,8 +73,8 @@ Vehicle</panel_attributes>
   <element>
     <type>com.umlet.element.UseCase</type>
     <coordinates>
-      <x>380</x>
-      <y>280</y>
+      <x>350</x>
+      <y>470</y>
       <w>120</w>
       <h>40</h>
     </coordinates>
@@ -85,8 +85,8 @@ Tank Level</panel_attributes>
   <element>
     <type>com.umlet.element.UseCase</type>
     <coordinates>
-      <x>380</x>
-      <y>320</y>
+      <x>350</x>
+      <y>510</y>
       <w>120</w>
       <h>40</h>
     </coordinates>
@@ -96,56 +96,52 @@ Tank Level</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>460</x>
-      <y>190</y>
-      <w>140</w>
-      <h>150</h>
+      <x>440</x>
+      <y>380</y>
+      <w>220</w>
+      <h>60</h>
     </coordinates>
-    <panel_attributes>lt=&lt;.
-&lt;&lt;extends&gt;&gt;</panel_attributes>
-    <additional_attributes>110;130;40;30</additional_attributes>
+    <panel_attributes/>
+    <additional_attributes>200;40;30;30</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>460</x>
-      <y>230</y>
-      <w>140</w>
-      <h>110</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-&lt;&lt;extends&gt;&gt;</panel_attributes>
-    <additional_attributes>110;90;40;30</additional_attributes>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>460</x>
-      <y>260</y>
-      <w>140</w>
+      <x>440</x>
+      <y>390</y>
+      <w>220</w>
       <h>80</h>
     </coordinates>
-    <panel_attributes>lt=&lt;.
-&lt;&lt;extends&gt;&gt;</panel_attributes>
-    <additional_attributes>110;60;40;40</additional_attributes>
+    <panel_attributes/>
+    <additional_attributes>200;30;30;60</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>460</x>
-      <y>280</y>
-      <w>140</w>
-      <h>80</h>
+      <x>440</x>
+      <y>390</y>
+      <w>220</w>
+      <h>120</h>
     </coordinates>
-    <panel_attributes>lt=&lt;.
-&lt;&lt;extends&gt;&gt;</panel_attributes>
-    <additional_attributes>110;40;40;60</additional_attributes>
+    <panel_attributes/>
+    <additional_attributes>200;30;30;100</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>440</x>
+      <y>390</y>
+      <w>220</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>200;30;30;140</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.UseCase</type>
     <coordinates>
-      <x>570</x>
-      <y>220</y>
+      <x>340</x>
+      <y>550</y>
       <w>120</w>
       <h>40</h>
     </coordinates>
@@ -155,8 +151,8 @@ Tank Level</panel_attributes>
   <element>
     <type>com.umlet.element.UseCase</type>
     <coordinates>
-      <x>570</x>
-      <y>260</y>
+      <x>340</x>
+      <y>590</y>
       <w>120</w>
       <h>40</h>
     </coordinates>
@@ -166,8 +162,8 @@ Tank Level</panel_attributes>
   <element>
     <type>com.umlet.element.UseCase</type>
     <coordinates>
-      <x>560</x>
-      <y>340</y>
+      <x>340</x>
+      <y>630</y>
       <w>120</w>
       <h>40</h>
     </coordinates>
@@ -188,78 +184,52 @@ Tank Level</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>660</x>
-      <y>250</y>
-      <w>340</w>
-      <h>150</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-&lt;&lt;extends&gt;&gt;</panel_attributes>
-    <additional_attributes>320;130;30;30</additional_attributes>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>660</x>
-      <y>210</y>
-      <w>340</w>
-      <h>190</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-&lt;&lt;extends&gt;&gt;</panel_attributes>
-    <additional_attributes>320;170;30;30</additional_attributes>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>660</x>
-      <y>290</y>
-      <w>340</w>
-      <h>110</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-&lt;&lt;extends&gt;&gt;</panel_attributes>
-    <additional_attributes>320;90;30;30</additional_attributes>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>650</x>
-      <y>320</y>
-      <w>340</w>
-      <h>80</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;.
-&lt;&lt;extends&gt;&gt;</panel_attributes>
-    <additional_attributes>320;60;30;40</additional_attributes>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>250</x>
-      <y>400</y>
-      <w>740</w>
-      <h>200</h>
+      <x>430</x>
+      <y>350</y>
+      <w>570</w>
+      <h>280</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>30;180;720;30</additional_attributes>
+    <additional_attributes>550;30;30;260</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>250</x>
-      <y>360</y>
-      <w>740</w>
+      <x>430</x>
+      <y>350</y>
+      <w>570</w>
       <h>240</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>30;220;720;30</additional_attributes>
+    <additional_attributes>550;30;30;220</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>730</x>
+      <y>350</y>
+      <w>270</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>250;30;30;70</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>430</x>
+      <y>350</y>
+      <w>560</w>
+      <h>320</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>540;30;30;300</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.UseCase</type>
     <coordinates>
-      <x>560</x>
-      <y>380</y>
+      <x>340</x>
+      <y>670</y>
       <w>120</w>
       <h>40</h>
     </coordinates>
@@ -269,20 +239,19 @@ Tank Level</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>650</x>
-      <y>340</y>
-      <w>340</w>
-      <h>80</h>
+      <x>430</x>
+      <y>350</y>
+      <w>560</w>
+      <h>360</h>
     </coordinates>
-    <panel_attributes>lt=&lt;.
-&lt;&lt;extends&gt;&gt;</panel_attributes>
-    <additional_attributes>320;40;30;60</additional_attributes>
+    <panel_attributes/>
+    <additional_attributes>540;30;30;340</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.UseCase</type>
     <coordinates>
-      <x>560</x>
-      <y>420</y>
+      <x>340</x>
+      <y>710</y>
       <w>120</w>
       <h>40</h>
     </coordinates>
@@ -292,13 +261,122 @@ Tank Level</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>650</x>
+      <x>430</x>
       <y>350</y>
-      <w>340</w>
-      <h>110</h>
+      <w>560</w>
+      <h>400</h>
     </coordinates>
-    <panel_attributes>lt=&lt;.
-&lt;&lt;extends&gt;&gt;</panel_attributes>
-    <additional_attributes>320;30;30;90</additional_attributes>
+    <panel_attributes/>
+    <additional_attributes>540;30;30;380</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>250</x>
+      <y>380</y>
+      <w>120</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>30;200;100;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>250</x>
+      <y>420</y>
+      <w>120</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>30;160;100;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>250</x>
+      <y>460</y>
+      <w>120</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>30;120;100;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>250</x>
+      <y>500</y>
+      <w>120</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>30;80;100;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>250</x>
+      <y>540</y>
+      <w>110</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>30;40;90;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>250</x>
+      <y>550</y>
+      <w>110</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>30;30;90;60</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>250</x>
+      <y>550</y>
+      <w>110</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>30;30;90;100</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>250</x>
+      <y>550</y>
+      <w>110</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>30;30;90;140</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>250</x>
+      <y>550</y>
+      <w>110</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>30;30;90;180</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>250</x>
+      <y>550</y>
+      <w>100</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>30;30;80;220</additional_attributes>
   </element>
 </diagram>
