@@ -8,12 +8,13 @@ public class BarneySource {
 	public static void main(String[] args) {
 		Socket toServer;
 		OutputStream stream;
+		String destination = "127.0.0.1";
+		String send = "Super De Duper";
 		byte[] b = new byte[100];
 		
 		try {
-			toServer = new Socket ("127.0.0.1", 9292);
+			toServer = new Socket (destination, 9292);
 			stream = toServer.getOutputStream();
-			String send = "Hey Brett, it works now!";
 			b = send.getBytes();
 			
 			stream.write(b);
