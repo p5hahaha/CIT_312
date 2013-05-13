@@ -9,7 +9,7 @@ public class BarneySource {
 		Socket toServer;
 		OutputStream stream;
 		String destination = "127.0.0.1";
-		String send = "Super De Duper";
+		String send = "It works Ryan";
 		byte[] b = new byte[100];
 		
 		try {

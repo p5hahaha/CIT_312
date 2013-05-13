@@ -4,16 +4,17 @@ import java.io.*;
 import java.net.*;
 
 public class BarneyServerListener extends Thread{
-
-	ServerSocket ss;
-	Socket s;
-	int listeningPort = 9292;
-	InputStream stream;
-
-	String fromClient = new String();
-	byte[] b = new byte[100];
-	BarneyServerListener()
+	public static void main (String[] args)
 	{
+		ServerSocket ss;
+		Socket s;
+		int listeningPort = 9292;
+		InputStream stream;
+
+		String fromClient = new String();
+		byte[] b = new byte[100];
+
+
 		try {
 			ss = new ServerSocket(listeningPort);
 			s = ss.accept();
@@ -29,5 +30,6 @@ public class BarneyServerListener extends Thread{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		System.out.println(fromClient);
 	}
 }
