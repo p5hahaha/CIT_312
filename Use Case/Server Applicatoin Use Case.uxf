@@ -323,4 +323,38 @@ Amount</panel_attributes>
     <panel_attributes/>
     <additional_attributes>30;70;90;30</additional_attributes>
   </element>
+  <element>
+    <type>com.umlet.element.UseCase</type>
+    <coordinates>
+      <x>430</x>
+      <y>470</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Record Gas 
+Amount</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>320</x>
+      <y>320</y>
+      <w>130</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>30;30;110;170</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>520</x>
+      <y>230</y>
+      <w>180</w>
+      <h>280</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>160;30;30;260</additional_attributes>
+  </element>
 </diagram>
