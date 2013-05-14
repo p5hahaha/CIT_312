@@ -51,7 +51,7 @@ Vehicle</panel_attributes>
     <type>com.umlet.element.UseCase</type>
     <coordinates>
       <x>140</x>
-      <y>610</y>
+      <y>670</y>
       <w>120</w>
       <h>40</h>
     </coordinates>
@@ -173,8 +173,8 @@ Tank Level</panel_attributes>
   <element>
     <type>com.umlet.element.UseCase</type>
     <coordinates>
-      <x>770</x>
-      <y>200</y>
+      <x>740</x>
+      <y>250</y>
       <w>120</w>
       <h>40</h>
     </coordinates>
@@ -185,45 +185,45 @@ Tank Level</panel_attributes>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>230</x>
-      <y>180</y>
-      <w>570</w>
-      <h>270</h>
+      <y>240</y>
+      <w>530</w>
+      <h>210</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>550;30;30;250</additional_attributes>
+    <additional_attributes>510;30;30;190</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>230</x>
-      <y>180</y>
-      <w>570</w>
-      <h>230</h>
+      <y>240</y>
+      <w>530</w>
+      <h>170</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>550;30;30;210</additional_attributes>
+    <additional_attributes>510;30;30;150</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>530</x>
-      <y>180</y>
-      <w>270</w>
-      <h>90</h>
+      <y>220</y>
+      <w>230</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>250;30;30;70</additional_attributes>
+    <additional_attributes>210;50;30;30</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>230</x>
-      <y>180</y>
-      <w>560</w>
-      <h>310</h>
+      <y>240</y>
+      <w>530</w>
+      <h>250</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>540;30;30;290</additional_attributes>
+    <additional_attributes>510;30;30;230</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.UseCase</type>
@@ -240,12 +240,12 @@ Tank Level</panel_attributes>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>230</x>
-      <y>180</y>
-      <w>560</w>
-      <h>370</h>
+      <y>240</y>
+      <w>530</w>
+      <h>310</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>540;30;30;350</additional_attributes>
+    <additional_attributes>510;30;30;290</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.UseCase</type>
@@ -262,12 +262,12 @@ Tank Level</panel_attributes>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>230</x>
-      <y>180</y>
-      <w>560</w>
-      <h>410</h>
+      <y>240</y>
+      <w>530</w>
+      <h>350</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>540;30;30;390</additional_attributes>
+    <additional_attributes>510;30;30;330</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
@@ -374,9 +374,43 @@ Tank Level</panel_attributes>
       <x>50</x>
       <y>380</y>
       <w>110</w>
-      <h>270</h>
+      <h>330</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>30;30;90;250</additional_attributes>
+    <additional_attributes>30;30;90;310</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.UseCase</type>
+    <coordinates>
+      <x>140</x>
+      <y>600</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Find Gas
+Station</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>50</x>
+      <y>380</y>
+      <w>110</w>
+      <h>260</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>30;30;90;240</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>230</x>
+      <y>240</y>
+      <w>530</w>
+      <h>400</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>30;380;510;30</additional_attributes>
   </element>
 </diagram>
