@@ -129,7 +129,7 @@ Amount</panel_attributes>
     <type>com.umlet.element.UseCase</type>
     <coordinates>
       <x>690</x>
-      <y>290</y>
+      <y>330</y>
       <w>120</w>
       <h>40</h>
     </coordinates>
@@ -162,12 +162,12 @@ Amount</panel_attributes>
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>780</x>
-      <y>280</y>
+      <y>320</y>
       <w>110</w>
-      <h>170</h>
+      <h>130</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>30;30;90;150</additional_attributes>
+    <additional_attributes>30;30;90;110</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.UseCase</type>
@@ -307,10 +307,10 @@ Amount</panel_attributes>
       <x>600</x>
       <y>240</y>
       <w>110</w>
-      <h>90</h>
+      <h>130</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>30;30;90;70</additional_attributes>
+    <additional_attributes>30;30;90;110</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
@@ -454,5 +454,38 @@ Amount</panel_attributes>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>160;30;30;400</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.UseCase</type>
+    <coordinates>
+      <x>690</x>
+      <y>290</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Enable User</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>780</x>
+      <y>280</y>
+      <w>110</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>30;30;90;150</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>600</x>
+      <y>240</y>
+      <w>110</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>30;30;90;70</additional_attributes>
   </element>
 </diagram>
