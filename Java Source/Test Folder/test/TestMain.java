@@ -7,10 +7,9 @@ public class TestMain {
 	/**
 	 * @param args
 	 */
+	
 	public static void main(String[] args) {
-		BarneyJSONTest sup = new BarneyJSONTest(); 
-		System.out.println(UUID.randomUUID().toString());
-		
+		HTTP_URL_JSON_Test u = new HTTP_URL_JSON_Test();
 
 	}
 
