@@ -136,7 +136,7 @@ public class HTTP_URL_JSON_Test {
 		System.out.println(json);
 
 		try {
-			HashMap<GasStation> aMap = (HashMap) JSONUtilities.parse(json);
+			HashMap aMap = (HashMap) JSONUtilities.parse(json);
 
 			String country = (String)aMap.get("country");
 			String zip = (String)aMap.get("zip");
