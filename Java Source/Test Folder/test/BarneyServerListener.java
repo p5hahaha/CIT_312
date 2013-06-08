@@ -19,10 +19,9 @@ public class BarneyServerListener extends Thread{
 		try {
 			ss = new ServerSocket(listeningPort);
 			s = ss.accept();
-
+			
 			stream = s.getInputStream();
 			stream.read(b);
-			clientIP = String.valueOf(s.getPort());
 
 			fromClient = new String(b);
 
@@ -32,6 +31,6 @@ public class BarneyServerListener extends Thread{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("Client IP address is: " + clientIP + '\n' + fromClient);
+		System.out.println(fromClient);
 	}
 }
