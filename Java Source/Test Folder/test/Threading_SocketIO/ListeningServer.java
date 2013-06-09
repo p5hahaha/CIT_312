@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.net.BindException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -16,9 +18,8 @@ public class ListeningServer extends Thread{
 	private int listeningPort;
 
 	public boolean listen = true; 				//Used to tell whether to run the server 
-	
-	private final ExecutorService executor = new ThreadPoolExecutor(10,20,0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<Runnable>());
 
+	Executor executor = Executors.newCachedThreadPool();
 
 	public ListeningServer(){
 		this.listeningPort = 9292;
@@ -31,7 +32,7 @@ public class ListeningServer extends Thread{
 				//s = ss.accept();
 				executor.execute(new ServerConnection(ss.accept()));
 
-				
+
 			} catch (BindException e) {
 				this.listen = false;
 
@@ -44,17 +45,8 @@ public class ListeningServer extends Thread{
 		}
 	}
 
-	@SuppressWarnings("deprecation")
 	public void stopServer(){
 		this.listen = false;
-		try{
-			executor.awaitTermination(10, TimeUnit.SECONDS);
-		} catch (InterruptedException e) {
-			System.out.println("Something happened with stopping the threads");
-			e.printStackTrace();
-		}
-		
-		this.stop();
 	}
 
 	public void run(){

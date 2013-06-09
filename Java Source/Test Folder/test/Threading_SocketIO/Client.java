@@ -43,8 +43,7 @@ public class Client {
 			System.out.println("Unknown Host");
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("IO Exception: Server Probably isn't listening");
 		}
 
 		System.out.println("End of Client");
