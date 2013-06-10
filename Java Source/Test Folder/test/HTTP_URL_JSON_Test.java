@@ -85,13 +85,14 @@ public class HTTP_URL_JSON_Test {
 	 * This is the code that I found on the internet basically
 	 */
 	HTTP_URL_JSON_Test(){
+		
 		String lattitude = "43.8261";
 		String longitude = "-111.7889";
 		String gastype = "reg";
 		String sortType = "price";
 		String api = "rfej9napna";
 		String url = "http://devapi.mygasfeed.com/stations/radius/"+ lattitude +"/"+longitude+"/10/"+gastype+"/"+sortType+"/"+api+".json";
-
+		
 		String json = new String();
 
 		int timeout = 500;

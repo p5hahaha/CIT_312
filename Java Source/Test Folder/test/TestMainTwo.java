@@ -18,18 +18,6 @@ public class TestMainTwo {
 		ListeningServerThree server = new ListeningServerThree();
 		server.start();
 
-		while (cont){
-			in = "";
-			System.out.println("Would you like to shutdown the server? (yes/no)");
-			input = new Scanner(System.in);
-			in = input.nextLine().toLowerCase();
-
-			if (in.contentEquals("yes")){
-				server.stopListening();
-				cont = false;
-			}
-
-		}
 	}
-
 }
+
