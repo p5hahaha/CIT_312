@@ -6,8 +6,10 @@ import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketException;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
-public class ListeningServerTwo extends Thread{
+public class ListeningServerThree extends Thread{
 	//Sockets needed to talk with client
 	ServerSocket serverSocket;
 	Socket fromClientSocket;
@@ -19,10 +21,13 @@ public class ListeningServerTwo extends Thread{
 	String outString;
 	OutputStream outStream;
 	InputStream inStream;
+	
+	Executor organizer = Executors.newCachedThreadPool();
+	
 
 	public boolean listen;
 
-	public ListeningServerTwo(){
+	public ListeningServerThree(){
 		port = 9292;
 		this.listen = true;
 	}
@@ -43,17 +48,10 @@ public class ListeningServerTwo extends Thread{
 			serverSocket = new ServerSocket(port);	//Creates a socket that is ready to listen on the port indicated
 			System.out.println("Starting server on thread: " + Thread.currentThread().getName());
 			while (listen){
-				fromClientSocket = serverSocket.accept(); //Creates the actual connection between client and server
-				inStream = fromClientSocket.getInputStream();
-
-				b = new byte[500];
-
-				inStream.read(b);
-				inString = new String(b);
-
-				System.out.println(inString);
-
-				fromClientSocket.close(); //Clean-up
+				
+				ServerClientInteraction session = new ServerClientInteraction(); //Creates the actual connection between client and server
+				session.setSocket(serverSocket.accept());
+				organizer.execute(session);
 			}
 			serverSocket.close();
 
@@ -63,12 +61,6 @@ public class ListeningServerTwo extends Thread{
 			System.out.println("Server: IOException");
 			e.printStackTrace();
 		}
-		/*try {
-				Thread.currentThread().sleep(200);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}*/
 	}
 }
 

@@ -1,6 +1,9 @@
 package test;
 
-import test.Threading_SocketIO.ListeningServerTwo;
+import java.io.IOException;
+import java.util.Scanner;
+
+import test.Threading_SocketIO.*;
 
 public class TestMainTwo {
 
@@ -8,19 +11,25 @@ public class TestMainTwo {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		String in = "";
+		boolean cont = true;
+		Scanner input;
 
-		
-		ListeningServerTwo server = new ListeningServerTwo();
+		ListeningServerThree server = new ListeningServerThree();
 		server.start();
-		
-		try {Thread.currentThread().sleep(5000);} catch (InterruptedException e) {e.printStackTrace();}
-		
-		server.stopListening();
-		long stop = System.currentTimeMillis();
-		
-		System.out.println("The server ran for " + Long.toString(stop - start) + " seconds");
-		
-		
+
+		while (cont){
+			in = "";
+			System.out.println("Would you like to shutdown the server? (yes/no)");
+			input = new Scanner(System.in);
+			in = input.nextLine().toLowerCase();
+
+			if (in.contentEquals("yes")){
+				server.stopListening();
+				cont = false;
+			}
+
+		}
 	}
 
 }
