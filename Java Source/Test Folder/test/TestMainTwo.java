@@ -11,12 +11,7 @@ public class TestMainTwo {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		String in = "";
-		boolean cont = true;
-		Scanner input;
-
-		ListeningServerThree server = new ListeningServerThree();
-		server.start();
+		HTTP_URL_JSON_Test json = new HTTP_URL_JSON_Test(); 
 
 	}
 }
