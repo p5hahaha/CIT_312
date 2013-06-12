@@ -1,8 +1,6 @@
 package test.Threading_SocketIO;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketException;
@@ -16,15 +14,7 @@ public class ListeningServerFour{
 		Socket fromClientSocket;
 		int port = 9292;
 
-		//Strings and streams to message the client
-		byte[] b;
-		String inString;
-		String outString;
-		OutputStream outStream;
-		InputStream inStream;
-
 		Executor organizer = Executors.newCachedThreadPool();
-
 
 		boolean listen = true;
 

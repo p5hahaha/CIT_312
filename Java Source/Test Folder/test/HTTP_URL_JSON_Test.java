@@ -10,6 +10,7 @@ import java.io.ObjectInputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.quickconnectfamily.json.JSONException;
@@ -138,20 +139,9 @@ public class HTTP_URL_JSON_Test {
 
 		try {
 			HashMap aMap = (HashMap) JSONUtilities.parse(json);
-
-			String country = (String)aMap.get("country");
-			String zip = (String)aMap.get("zip");
-			float price = (float)aMap.get("price");
-			String date = (String)aMap.get("date");
-			String address = (String)aMap.get("address");
-			String diesel = (String)aMap.get("diesel");
-			int id = (int)aMap.get("id");
-			float lat = (float)aMap.get("lat");
-			float lng = (float)aMap.get("lng");
-			String station = (String)aMap.get("station");
-			String region = (String)aMap.get("region");
-			String city = (String)aMap.get("city");
-			String distance = (String)aMap.get("distance");
+			ArrayList list = (ArrayList) aMap.get("stations");
+			HashMap firstStation = (HashMap)list.get(0);
+			System.out.println("The region is "+firstStation.get("region") + " and the distance is "+ firstStation.get("distance"));
 
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
