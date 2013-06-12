@@ -4,10 +4,16 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.Socket;
 
+import org.quickconnectfamily.json.JSONException;
+import org.quickconnectfamily.json.JSONInputStream;
+import org.quickconnectfamily.json.JSONOutputStream;
+
 public class ServerClientInteraction implements Runnable{
 	private Socket fromClientSocket;
 	
 	private InputStream inStream;
+	private JSONInputStream jsonIn;
+	private JSONOutputStream jsonOut;
 	private String inString;
 	
 	private byte[] b;
@@ -19,14 +25,12 @@ public class ServerClientInteraction implements Runnable{
 	public void run(){
 
 		try {
-			inStream = fromClientSocket.getInputStream();
+			jsonIn = new JSONInputStream(fromClientSocket.getInputStream());
+			inString = (String)jsonIn.readObject();
 			
-			b = new byte[500];
-			inStream.read(b);
-			inString = new String(b);
 			System.out.println(inString);
 			fromClientSocket.close(); //Clean-up
-		} catch (IOException e) {
+		} catch (IOException | JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}			

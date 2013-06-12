@@ -5,9 +5,14 @@ import java.io.OutputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
+import org.quickconnectfamily.json.JSONException;
+import org.quickconnectfamily.json.JSONOutputStream;
+
 public class Client {
 	Socket toServer;
 	OutputStream stream;
+	
+	JSONOutputStream jsonOut;
 	byte[] b = new byte[100];
 	
 	String destinationIP = "127.0.0.1";
@@ -31,11 +36,9 @@ public class Client {
 	{
 		try {
 			toServer = new Socket(destinationIP, port);
-			stream = toServer.getOutputStream();
+			jsonOut = new JSONOutputStream(toServer.getOutputStream());
 
-			b = send.getBytes();
-			stream.write(b);
-			stream.flush();
+			jsonOut.writeObject(send);
 			toServer.close();
 
 		} catch (UnknownHostException e) {
@@ -44,6 +47,9 @@ public class Client {
 			e.printStackTrace();
 		} catch (IOException e) {
 			System.out.println("IO Exception: Server Probably isn't listening");
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 
 		System.out.println("End of Client");
