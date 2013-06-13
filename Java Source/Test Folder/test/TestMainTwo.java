@@ -12,7 +12,11 @@ public class TestMainTwo {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		HTTP_URL_JSON_Test sup = new HTTP_URL_JSON_Test();
+		try{
+			HTTP_URL_JSON_Test sup = new HTTP_URL_JSON_Test();
+		}catch (Exception e){
+			e.printStackTrace();
+		}
 		
 	}
 }
