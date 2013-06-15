@@ -7,34 +7,33 @@ import java.net.SocketException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
-public class ListeningServerFour{
+public class ListeningServer5{
 	public static void main(String[] args){
+		
 		//Sockets needed to talk with client
 		ServerSocket serverSocket;
-		Socket fromClientSocket;
 		int port = 9292;
 
 		Executor organizer = Executors.newCachedThreadPool();
-
-		boolean listen = true;
+		Controller controller = new Controller();
 
 		try {
 			serverSocket = new ServerSocket(port);	//Creates a socket that is ready to listen on the port indicated
-			System.out.println("Starting server on thread: " + Thread.currentThread().getName());
-			while (listen){
-				ServerClientInteraction session = new ServerClientInteraction(); //Creates the actual connection between client and server
-				session.setSocket(serverSocket.accept());
+			
+			while (true){
+				ServerClientInteraction2 session 
+					= new ServerClientInteraction2(serverSocket.accept(), controller); 
+				
 				organizer.execute(session);
 			}
-			serverSocket.close();
-			
 		} catch(SocketException e){
 			System.out.println("Socket Closed");
 		} catch (IOException e) {
 			System.out.println("Server: IOException");
 			e.printStackTrace();
+			
 		}
-		Thread.currentThread().interrupt();
+		
 	}
 }
 
