@@ -12,6 +12,10 @@ import java.util.Set;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.Query;
+
+import test.HQL_Test.HibernateUtilSingleton;
+import test.HQL_Test.PhoneNumber;
+import test.HQL_Test.User;
 //import org.apache.log4j.Logger;
 public class SillyHibernateUseExample {
 	    //final static Logger logger = Logger.getLogger(SillyHibernateUseExample.class);
@@ -62,8 +66,8 @@ public class SillyHibernateUseExample {
 	         * prove that the User instances were added to the database and that
 	         * the instances were each updated with a database generated id.
 	         */
-	        System.out.println("aUser generated ID is: " + aUser.getId());
-	        System.out.println("anotherUser generated ID is: " + anotherUser.getId());
+	        System.out.println("aUser generated ID is: " + aNameUser.getId());
+	        System.out.println("anotherUser generated ID is: " + leeUser.getId());
 	    }
 	    
 	    /*
@@ -140,13 +144,13 @@ public class SillyHibernateUseExample {
 	         * create a PhoneNumber instance
 	         */
 	        PhoneNumber sharedPhoneNumber = new PhoneNumber();
-	        sharedPhoneNumber.setPhone("(546)222-9898″);
+	        sharedPhoneNumber.setPhone("(546)222-9898");
 	                                   
 	       /*
 	        * add the shared phone number to the joshuaUser 
 	        */
 	       
-	       Set<PhoneNumber> joshuaPhoneNumbers = firstUser.getPhoneNumbers(); 
+	       Set<PhoneNumber> joshuaPhoneNumbers = joshuaUser.getPhoneNumbers(); 
 	       joshuaPhoneNumbers.add(sharedPhoneNumber);
 	       /*
 	        * set the single phone number to be used by more than one User

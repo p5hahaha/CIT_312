@@ -12,12 +12,11 @@ public class ServerClientInteraction2 implements Runnable{
 	private Socket fromClientSocket;
 	private Controller localControl;
 
-	private InputStream inStream;
 	private JSONInputStream jsonIn;
 	private JSONOutputStream jsonOut;
-	private String inString;
-
-	private byte[] b;
+	
+	private CommandBean requestFromClient;
+	private CommandBean replyToClient;
 
 	ServerClientInteraction2(Socket s, Controller c){
 		this.fromClientSocket = s;
@@ -28,13 +27,18 @@ public class ServerClientInteraction2 implements Runnable{
 
 		try {
 			jsonIn = new JSONInputStream(fromClientSocket.getInputStream());
-			inString = (String)jsonIn.readObject();
+			jsonOut = new JSONOutputStream(fromClientSocket.getOutputStream());
 			
 			boolean loop = true;
 			
 			while(loop){
-				localControl.command();
-				System.out.println(inString);
+				requestFromClient = (CommandBean) jsonIn.readObject();
+				
+				System.out.println(requestFromClient.getCommand());
+				
+				if (requestFromClient.getCommand() == "bye")
+					loop = false;
+				jsonOut.writeObject(new CommandBean("Acknowledge","Super de duper"));
 			}
 			
 
