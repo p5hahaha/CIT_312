@@ -6,17 +6,19 @@ import javax.xml.ws.handler.MessageContext;
 
 import test.Threading_SocketIO.CommandBean;
 
-public class GetUser extends GenericCommand{
-	
+public class Error extends GenericCommand{
+
 	@Override
 	public CommandBean action(HashMap<String, String> a){
-		return new CommandBean("Action: GetUser", new HashMap<String,String>());
+		HashMap<String, String> e = new HashMap<String, String>();
+		e.put("errorCode", "Incorrect Command");
+		return new CommandBean("error", e);
 	}
 
 	@Override
 	public void close(MessageContext context) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override

@@ -40,12 +40,13 @@ public class ServerClientInteraction2 implements Runnable{
 			while(loop && !fromClientSocket.isClosed() && failureCount < 3) {
 				try{
 					requestFromClient = (CommandBean) jsonIn.readObject();
-
-					System.out.println(requestFromClient.command);
-
+					
+					replyToClient = localControl.command(requestFromClient.command, requestFromClient.data);
+					
+					jsonOut.writeObject(replyToClient);
 					if (requestFromClient.command == "bye")
 						loop = false;
-					jsonOut.writeObject(new CommandBean("Acknowledge","Super de duper"));
+					
 				} catch( IOException e){
 					
 				} catch (ClassNotFoundException e) {

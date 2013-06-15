@@ -16,44 +16,54 @@ import org.quickconnectfamily.json.JSONUtilities;
 public class Client {
 	Socket toServer;
 	OutputStream stream;
-	
+
 	ObjectOutputStream jsonOut;
 	ObjectInputStream jsonIn;
-	
+
 	CommandBean commandToServer;
 	CommandBean commandFromServer;
 	//byte[] b = new byte[100];
-	
+
 	String destinationIP = "127.0.0.1";
 	int port;
-	
+
 	String send;
 	HashMap in;
-	
+
 	public Client(){
 		destinationIP = "127.0.0.1";
 		port = 9292;
 		send = "Great Day";
 	}
-	
+
 	public Client(String message){
 		this.send = message;
 		destinationIP = "127.0.0.1";
 		port = 9292;
 	}
-	
+
 	public void transmit()
 	{
 		try {
 			toServer = new Socket(destinationIP, port);
 			jsonOut = new ObjectOutputStream(toServer.getOutputStream());
 			jsonIn = new ObjectInputStream(toServer.getInputStream());
-			
+
 			try{
-			jsonOut.writeObject(new CommandBean("bye","Great day"));
-			commandFromServer = (CommandBean) jsonIn.readObject();
-			
-			System.out.println("Command from server: " + commandFromServer.command);
+				HashMap<String, String> a = new HashMap<String, String>();
+				a.put("username", "jason");
+				a.put("password", "super");
+				
+				
+				jsonOut.writeObject(new CommandBean("login", a));
+				commandFromServer = (CommandBean) jsonIn.readObject();
+				System.out.println("Command from server: " + commandFromServer.command);
+				
+				jsonOut.writeObject(new CommandBean("bye", a));
+				commandFromServer = (CommandBean) jsonIn.readObject();
+				System.out.println("Command from server: " + commandFromServer.command);
+
+
 			} catch (ClassNotFoundException e) {
 				System.out.println("I don't understand the class that was sent");
 				e.printStackTrace();
