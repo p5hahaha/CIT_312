@@ -28,6 +28,7 @@ public class ListeningServer5{
 			}
 		} catch(SocketException e){
 			System.out.println("Socket Closed");
+			e.printStackTrace();
 		} catch (IOException e) {
 			System.out.println("Server: IOException");
 			e.printStackTrace();

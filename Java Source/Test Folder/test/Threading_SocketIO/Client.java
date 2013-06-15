@@ -1,6 +1,8 @@
 package test.Threading_SocketIO;
 
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
@@ -15,8 +17,8 @@ public class Client {
 	Socket toServer;
 	OutputStream stream;
 	
-	JSONOutputStream jsonOut;
-	JSONInputStream jsonIn;
+	ObjectOutputStream jsonOut;
+	ObjectInputStream jsonIn;
 	
 	CommandBean commandToServer;
 	CommandBean commandFromServer;
@@ -44,20 +46,18 @@ public class Client {
 	{
 		try {
 			toServer = new Socket(destinationIP, port);
-			jsonOut = new JSONOutputStream(toServer.getOutputStream());
-			jsonIn = new JSONInputStream(toServer.getInputStream());
+			jsonOut = new ObjectOutputStream(toServer.getOutputStream());
+			jsonIn = new ObjectInputStream(toServer.getInputStream());
 			
-			send = JSONUtilities.stringify(new CommandBean("Test","Test data"));
-			jsonOut.writeObject(send);
+			try{
+			jsonOut.writeObject(new CommandBean("bye","Great day"));
+			commandFromServer = (CommandBean) jsonIn.readObject();
 			
-			in = (HashMap) jsonIn.readObject();
-			System.out.println(in.toString());
-			
-			jsonOut.writeObject(new CommandBean("bye", null));
-			
-			in = (HashMap) jsonIn.readObject();
-			System.out.println(in.toString());
-			
+			System.out.println("Command from server: " + commandFromServer.command);
+			} catch (ClassNotFoundException e) {
+				System.out.println("I don't understand the class that was sent");
+				e.printStackTrace();
+			}
 			toServer.close();
 
 		} catch (UnknownHostException e) {
@@ -66,10 +66,8 @@ public class Client {
 			e.printStackTrace();
 		} catch (IOException e) {
 			System.out.println("IO Exception: Server Probably isn't listening");
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		} 
 
 		System.out.println("End of Client");
 	}
