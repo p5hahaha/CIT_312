@@ -15,22 +15,25 @@ public class HibernateUtilSingleton
 private static final SessionFactory sessionFactory;
 
     static{
+    	String username = "application";
+    	String password = "somePassword";
         try{
-            AnnotationConfiguration config = new AnnotationConfiguration();
+            @SuppressWarnings("deprecation")
+			AnnotationConfiguration config = new AnnotationConfiguration();
 
-            config.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
+            config.setProperty("hibernate.dialect", "org.hibernate.dialect.Oracle10gDialect");
 
-            config.setProperty("hibernate.connection.driver_class", "com.mysql.jdbc.Driver");
+            config.setProperty("hibernate.connection.driver_class", "com.oracle.jdbc.Driver");
 
             //change the next line of code to match your MySQL url
 
-            config.setProperty("hibernate.connection.url", "jdbc:mysql://localhost/test");
+            config.setProperty("hibernate.connection.url", "jdbc:oracle:thin:@localhost:1521:XE");
 
             //change the next two lines of code to match your MySQL user name and password.
 
-            config.setProperty("hibernate.connection.username", "dude");
+            config.setProperty("hibernate.connection.username", username);
 
-            config.setProperty("hibernate.connection.password", "hey2dude");
+            config.setProperty("hibernate.connection.password", password);
 
             //change the pool size to reflect how many users you expect your application to have initially
 
