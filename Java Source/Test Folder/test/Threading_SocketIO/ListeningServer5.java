@@ -25,6 +25,7 @@ public class ListeningServer5{
 					= new ServerClientInteraction2(serverSocket.accept(), controller); 
 				
 				organizer.execute(session);
+				//Thread.currentThread().sleep(100);
 			}
 		} catch(SocketException e){
 			System.out.println("Socket Closed");
@@ -33,7 +34,10 @@ public class ListeningServer5{
 			System.out.println("Server: IOException");
 			e.printStackTrace();
 			
-		}
+		} /*catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
 		
 	}
 }

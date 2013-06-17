@@ -9,3 +9,10 @@ BEGIN
   END LOOP;
 END;
 /
+
+CREATE TABLE user
+( user_id		INT PRIMARY KEY
+, user_name		VARCHAR2(30)
+, password		
+, first_name	VARCHAR2(30)
+, last_name		VARCHAR2(30)	

@@ -8,6 +8,7 @@ import org.hibernate.cfg.AnnotationConfiguration;
 * This class follows the singleton pattern.
 */
 
+@SuppressWarnings("deprecation")
 public class HibernateUtilSingleton
 
 {
@@ -18,12 +19,11 @@ private static final SessionFactory sessionFactory;
     	String username = "application";
     	String password = "somePassword";
         try{
-            @SuppressWarnings("deprecation")
-			AnnotationConfiguration config = new AnnotationConfiguration();
+            AnnotationConfiguration config = new AnnotationConfiguration();
 
             config.setProperty("hibernate.dialect", "org.hibernate.dialect.Oracle10gDialect");
 
-            config.setProperty("hibernate.connection.driver_class", "com.oracle.jdbc.Driver");
+            config.setProperty("hibernate.connection.driver_class", "oracle.jdbc.driver.OracleDriver");
 
             //change the next line of code to match your MySQL url
 
