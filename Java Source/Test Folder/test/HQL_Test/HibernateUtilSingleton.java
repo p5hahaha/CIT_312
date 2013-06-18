@@ -18,6 +18,7 @@ private static final SessionFactory sessionFactory;
     static{
     	String username = "application";
     	String password = "somePassword";
+
         try{
             AnnotationConfiguration config = new AnnotationConfiguration();
 
