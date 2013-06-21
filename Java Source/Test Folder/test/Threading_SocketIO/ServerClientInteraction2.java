@@ -20,7 +20,7 @@ public class ServerClientInteraction2 implements Runnable{
 
 	private CommandBean requestFromClient;
 	private CommandBean replyToClient;
-	
+
 	private int failureCount;
 
 	ServerClientInteraction2(Socket s, Controller c){
@@ -31,24 +31,26 @@ public class ServerClientInteraction2 implements Runnable{
 	public void run(){
 
 		try {
+			System.out.println(Thread.currentThread().getName());
 			jsonIn = new ObjectInputStream(fromClientSocket.getInputStream());
 			jsonOut = new ObjectOutputStream(fromClientSocket.getOutputStream());
 
 			boolean loop = true;
 			failureCount = 0;
-			
+
 			while(loop && !fromClientSocket.isClosed() && failureCount < 3) {
 				try{
 					requestFromClient = (CommandBean) jsonIn.readObject();
-					
+
 					replyToClient = localControl.command(requestFromClient.command, requestFromClient.data);
-					
+
 					jsonOut.writeObject(replyToClient);
 					if (requestFromClient.command == "bye")
 						loop = false;
-					
+
 				} catch( IOException e){
-					
+					failureCount++;
+					e.printStackTrace();
 				} catch (ClassNotFoundException e) {
 					failureCount++;
 					e.printStackTrace();
@@ -58,7 +60,6 @@ public class ServerClientInteraction2 implements Runnable{
 
 			fromClientSocket.close(); //Clean-up
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();			
 			return;
 		}

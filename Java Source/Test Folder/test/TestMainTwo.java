@@ -11,9 +11,9 @@ public class TestMainTwo {
 	public static void main(String[] args) {		
 		new Client("TestMain Two Super").transmit();
 		//try {Thread.currentThread().sleep(100);} catch (InterruptedException e) {e.printStackTrace();}
-		new Client("TestMain Karlos Shake").transmit();
+		//new Client("TestMain Karlos Shake").transmit();
 		//try {Thread.currentThread().sleep(100);} catch (InterruptedException e) {e.printStackTrace();}
-		new Client("TestMain over the rainbow Shuffle").transmit();
+		//new Client("TestMain over the rainbow Shuffle").transmit();
 	}
 	
 	static void changeName(String u){

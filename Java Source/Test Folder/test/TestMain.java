@@ -8,6 +8,7 @@ import test.Threading_SocketIO.*;
 public class TestMain {
 
 	public static void main(String[] args) {
-		new Client("HOwdy").transmit();
+		new Client("TestMain Two Super").transmit();
+		//new Client("HOwdy").transmit();
 	}
 }

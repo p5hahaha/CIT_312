@@ -3,11 +3,11 @@
 		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
 		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-    <session-factory name="factory">
+    <session-factory >
         <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
-        <property name="hibernate.connection.password">student</property>
+        <property name="hibernate.connection.password">somePassword</property>
         <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:XE</property>
-        <property name="hibernate.connection.username">student</property>
+        <property name="hibernate.connection.username">application</property>
         <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
     </session-factory>
 </hibernate-configuration>
