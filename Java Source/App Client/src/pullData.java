@@ -15,35 +15,108 @@ public class pullData {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		User defaultUser = registerUser();
 		
-		addVehicle(defaultUser);
+		Scanner input = new Scanner(System.in);
 		
-		System.out.println("User "+ defaultUser.getUserName() + ":\n");
-		System.out.println(defaultUser.toString());
+		User defaultUser = null;
 		
+		defaultUser = new User("Daniel", "Ryan");
 		
-/*		Vehicle vOne = new Vehicle("Harley-Davidson", 2013, "SuperLow",4.5, 0, "supeLow");
-	
-		vOne.setVehicleAverageMPG(43);
-	
-		Vehicle vTwo = new Vehicle(43.0, 5, 0, "SuperGlide Custom");
+		Vehicle newV = new Vehicle(42, 4.7, 1234, "ManofSteel");
+		defaultUser.setVehicles(newV);
+		
+		char menu = 's';
+		String in = "x";
+		
+		while (menu != 'q')
+		{
+			System.out.println("\n\nMenu\n\nCreate User: \tn" +
+								"\nAdd Bike: \ta" +
+								"\nChange Bike: \tc" +
+								"\nDisplay Bike: \td" +
+								"\nGet Gas: \tf" +
+								"\nFill Tank \tF" +
+								"\nUse Gas: \tg" +
+								"\nMiles Driven: \tm" +
+								"\nOdometer: \to" +
+								"\nQuit: \t\tq\n");
+			
+			in = input.nextLine();
 
-		vOne.setVehicleCurrentGasAmount(4);
-		vTwo.setVehicleCurrentGasAmount(4.9);
-		
-		User uOne = new User();
-		
-		uOne.setVehicles(vOne);
-		uOne.setVehicles(vTwo);
-		
-		uOne.setDefaultVehicle(0);
-		
-		System.out.println("User One:\n");
-		System.out.println(uOne.toString());
-		
-		System.out.println(uOne.defaultToString());
-*/		System.out.print("Thank You");
+			if (!in.isEmpty()){
+				menu = in.charAt(0);
+			}
+			else {
+				menu = 'x';
+			}
+			
+			switch (menu) {
+			
+			case 'n': 
+				System.out.println("New User");
+				defaultUser = registerUser();
+				break;
+			case 'a':
+				System.out.println("Add Vehicle");
+				addVehicle(defaultUser);
+				break;
+			case 'c':
+				System.out.println("Change Default Vehicle");
+				changeVehicle(defaultUser);
+				break;
+			case 'd':
+				System.out.println("Display Vehcicles");
+				System.out.println("User "+ defaultUser.getUserName() + ":\n");
+				System.out.println(defaultUser.toString());
+				break;
+			case 'f':
+				System.out.println("Get Gas");
+				fillTank(defaultUser);
+				System.out.println(defaultUser.defaultToString());
+				break;
+			case 'F':
+				System.out.println("Fill Tank");
+				fillTankFull(defaultUser);
+				System.out.println(defaultUser.defaultToString());
+				break;
+			case 'g':
+				System.out.println("How Much Gas Used?");
+				useGas(defaultUser, input.nextDouble());
+				System.out.println(defaultUser.defaultToString());
+				break;
+			case 'm':
+				System.out.println("Miles Driven?");
+				double inD = input.nextDouble();
+				milesDriven(defaultUser, inD);
+				System.out.println(defaultUser.defaultToString());
+				break;
+			case 'o':
+				System.out.println("Starting Odometer:");
+				int inS = input.nextInt();
+				System.out.println("Ending Odometer:");
+				int inE = input.nextInt();
+				int odom = inE - inS;
+				if (odom > 0){
+					milesDriven(defaultUser, odom);
+					break;
+				}
+				else {
+					System.out.println("Cannot drive negative miles");
+					break;
+				}
+			case 'q':
+				System.out.println("Quit");
+				break;
+			default:
+				break;
+			}
+			
+			in = null;
+			menu = 's';
+			
+		}
+
+		System.out.print("Thank You");
 	}
 
 	public static User registerUser() {
@@ -138,6 +211,90 @@ public class pullData {
 		}
 		
 		currentUser.setVehicles(newV);
+		
+	}
+	
+	public static void changeVehicle(User defaultUser){
+		Scanner input = new Scanner(System.in);
+		
+		String info = "All Vehicles: \n\n";
+		
+		for (int i = 0; i < defaultUser.vehicles.length; i++){
+			info += defaultUser.vehicles[i].getVehicleName();
+			info += "\nVehicle Number: " + i;
+			info += "\n\n";
+		}
+		
+		System.out.println(info + "\n\nWhich Vehicle do you want to be default?");
+		
+		int def = input.nextInt();
+		
+		defaultUser.setDefaultVehicle(def);
+		
+	}
+	
+	public static void fillTank(User defaultUser){
+		
+		Scanner input = new Scanner(System.in);
+		double gas;
+		
+		int defaultVehicle = defaultUser.getDefaultVehicle();
+		
+//		defaultUser.vehicles[defaultVehicle].getVehicleGasTankSize();
+		
+		System.out.println("How much gas to add?");
+
+		gas = input.nextDouble();
+		
+		if (defaultUser.vehicles[defaultVehicle].getVehicleCurrentGasAmount() + gas <= defaultUser.vehicles[defaultVehicle].getVehicleGasTankSize()) {
+			defaultUser.vehicles[defaultVehicle].setVehicleCurrentGasAmount(gas + defaultUser.vehicles[defaultVehicle].getVehicleCurrentGasAmount());
+		}
+		else {
+			System.out.println("Don't Overfill Tank\n");
+		}
+	}
+	
+	public static void fillTankFull(User defaultUser){
+
+		defaultUser.vehicles[defaultUser.getDefaultVehicle()].setVehicleCurrentGasAmount(defaultUser.vehicles[defaultUser.getDefaultVehicle()].getVehicleGasTankSize());
+
+	}
+	
+	public static boolean useGas(User defaultUser, double gasUsed){
+		
+		double gas;
+		
+		int defaultVehicle = defaultUser.getDefaultVehicle();
+		
+		gas = defaultUser.vehicles[defaultVehicle].getVehicleCurrentGasAmount();
+		
+		if (gas - gasUsed >= 0){
+			gas -= gasUsed;
+			defaultUser.vehicles[defaultVehicle].setVehicleCurrentGasAmount(gas);
+			return true;
+		}
+		
+		return false;
+		
+	}
+	
+	public static void milesDriven(User defaultUser, double milesDriven){
+		
+		int defaultVehicle = defaultUser.getDefaultVehicle();
+		double mpg = defaultUser.vehicles[defaultVehicle].getVehicleAverageMPG();
+		double gas = defaultUser.vehicles[defaultVehicle].getVehicleCurrentGasAmount();
+		
+		double gasUsed = milesDriven / mpg;
+		
+		if (useGas(defaultUser, gasUsed)){
+
+		defaultUser.vehicles[defaultVehicle].setVehicleOdometer(milesDriven + defaultUser.vehicles[defaultVehicle].getVehicleOdometer());
+		
+		}
+		
+		else {
+			System.out.println("Can't drive that far on that amount of gas");
+		}
 		
 	}
 	

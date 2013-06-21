@@ -11,6 +11,8 @@ public class User {
 
 	String userName;
 	String passWord;
+	Vehicle[] vehicles = new Vehicle[0];
+	int defaultVehicle;
 	
 	public User(String userName, String passWord){
 	this.userName = userName;
@@ -36,9 +38,6 @@ public class User {
 	public void setVehicles(Vehicle[] vehicles) {
 		this.vehicles = vehicles;
 	}
-
-	Vehicle[] vehicles = new Vehicle[0];
-	int defaultVehicle;
 	
 	public User(){
 	}
@@ -48,6 +47,15 @@ public class User {
 	}
 	public void setVehicles(Vehicle toAdd) {
 		this.vehicles = addElement(this.vehicles, toAdd);
+	}
+	public void removeVehicle(int toTakeOut){
+		Vehicle[] temp = this.vehicles;
+		this.vehicles = new Vehicle[0];
+		for (int i = 0; i < temp.length; i++){
+			if (i != toTakeOut){
+				addElement(this.vehicles, temp[i]);	
+			}
+		}
 	}
 	public int getDefaultVehicle() {
 		return defaultVehicle;
@@ -75,6 +83,9 @@ public class User {
 		String info = "All Vehicles: \n\n";
 		
 		for (int i = 0; i < this.vehicles.length; i++){
+			if (i == this.defaultVehicle){
+				info += "\nDefault Vehicle\n";
+			}
 			info += this.vehicles[i].toString();
 			info += "\nVehicle Number: " + i;
 			info += "\n\n";

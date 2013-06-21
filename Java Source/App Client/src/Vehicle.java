@@ -13,7 +13,7 @@ public class Vehicle {
 	double vehicleAverageMPG;
 	double vehicleGasTankSize;
 	double vehicleCurrentGasAmount;
-	int vehicleOdometer;
+	double vehicleOdometer;
 	String vehicleName;
 
 	public Vehicle(){
@@ -78,10 +78,10 @@ public class Vehicle {
 		this.vehicleCurrentGasAmount = vehicleCurrentGasAmount;
 	}
 	
-	public int getVehicleOdometer() {
+	public double getVehicleOdometer() {
 		return vehicleOdometer;
 	}
-	public void setVehicleOdometer(int vehicleOdometer) {
+	public void setVehicleOdometer(double vehicleOdometer) {
 		this.vehicleOdometer = vehicleOdometer;
 	}
 	
