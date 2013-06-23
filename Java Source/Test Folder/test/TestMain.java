@@ -1,6 +1,8 @@
 package test;
 
-import test.Threading_SocketIO.*;
+import java.util.HashMap;
+
+import test.Ryan.*;
 
 //import test.Threading_SocketIO.ListeningServer;
 
@@ -8,7 +10,17 @@ import test.Threading_SocketIO.*;
 public class TestMain {
 
 	public static void main(String[] args) {
-		new Client("TestMain Two Super").transmit();
-		//new Client("HOwdy").transmit();
+		HashMap<String, Vehicle> vechicleList = new HashMap<String, Vehicle>();
+		
+		vechicleList.put("Ryan", new Vehicle("Harley", 1988, "Ninja", 4.3, 199, "Ryan"));
+		vechicleList.put("please", new Vehicle("Harley", 1988, "Ninja", 4.3, 199, "please"));
+		
+
+		
+		System.out.println(vechicleList.toString() + '\n');
+		
+		System.out.println("Number of things in the list = " + Integer.toString(vechicleList.size()));
+		
+		System.out.println("Number of things in the list = " + Integer.toString(vechicleList.size()));
 	}
 }

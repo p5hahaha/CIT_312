@@ -16,7 +16,7 @@ END;
 /
 
 CREATE TABLE my_user
-( id		INT PRIMARY KEY
+( user_id		INT PRIMARY KEY
 , uname			VARCHAR2(30)
 , pword			VARCHAR2(65)
 , first_name	VARCHAR2(30)

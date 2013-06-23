@@ -19,8 +19,8 @@ public class MyUser {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO, generator="my_user_generator")
-	@SequenceGenerator(name="my_user_generator", sequenceName="s1_user")
-	private Integer id;
+	@SequenceGenerator(name="my_user_generator", sequenceName="student.s1_user")
+	private Integer user_id;
 	private String uname;
 	private String pword;
 	private String first_name;
@@ -36,11 +36,11 @@ public class MyUser {
 	}
 	
 	public Integer getId() {
-		return id;
+		return user_id;
 	}
 
 	public void setId(Integer id) {
-		this.id = id;
+		this.user_id = id;
 	}
 
 	public String getUname() {
@@ -60,6 +60,6 @@ public class MyUser {
 	}
 
 	public String toString() {
-        return "User [id=" + id + ", pword=" + pword + ", uname=" + uname + ", phoneNumbers]";
+        return "User [id=" + user_id + ", pword=" + pword + ", uname=" + uname + "]";
     }
 }
