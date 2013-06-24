@@ -1,4 +1,4 @@
-import java.util.Arrays;
+import java.util.HashMap;
 
 /**
  * 
@@ -11,7 +11,7 @@ public class User {
 
 	String userName;
 	String passWord;
-	Vehicle[] vehicles = new Vehicle[0];
+	HashMap<Integer, Vehicle> vehicleList = new HashMap<Integer, Vehicle>();
 	int defaultVehicle;
 	
 	public User(String userName, String passWord){
@@ -34,28 +34,23 @@ public class User {
 	public void setPassWord(String passWord) {
 		this.passWord = passWord;
 	}
-
-	public void setVehicles(Vehicle[] vehicles) {
-		this.vehicles = vehicles;
-	}
 	
+	public HashMap<Integer, Vehicle> getVehicleList() {
+		return vehicleList;
+	}
+
+	public void setVehicleList(HashMap<Integer, Vehicle> vehicleList) {
+		this.vehicleList = vehicleList;
+	}
+
 	public User(){
 	}
 	
-	public Vehicle[] getVehicles() {
-		return vehicles;
-	}
 	public void setVehicles(Vehicle toAdd) {
-		this.vehicles = addElement(this.vehicles, toAdd);
+		this.vehicleList = addElement(this.vehicleList, toAdd);
 	}
 	public void removeVehicle(int toTakeOut){
-		Vehicle[] temp = this.vehicles;
-		this.vehicles = new Vehicle[0];
-		for (int i = 0; i < temp.length; i++){
-			if (i != toTakeOut){
-				addElement(this.vehicles, temp[i]);	
-			}
-		}
+		this.vehicleList.remove(toTakeOut);
 	}
 	public int getDefaultVehicle() {
 		return defaultVehicle;
@@ -64,16 +59,21 @@ public class User {
 		this.defaultVehicle = defaultVehicle;
 	}
 	
-	public Vehicle[] addElement(Vehicle[] org, Vehicle added) {
-	    Vehicle[] result = Arrays.copyOf(org, org.length +1);
-	    result[org.length] = added;
-	    return result;
+	public HashMap<Integer, Vehicle> addElement(HashMap<Integer, Vehicle> vehicleList, Vehicle added) {
+		
+		vehicleList.put(vehicleList.size(), added);
+//	    Vehicle[] result = Arrays.copyOf(org, org.length +1);
+//	    result[org.length] = added;
+//	    return result;
+		return vehicleList;
 	}
 
 	public String defaultToString(){
 		String info = "Default Vehicle:\n\n";
-				
-		info += this.vehicles[this.defaultVehicle].toString();
+		
+		info += vehicleList.get(this.defaultVehicle).toString();
+		
+//		info += this.vehicles[this.defaultVehicle].toString();
 		info += "\nVehicle Number: " + this.defaultVehicle;
 		
 		return info;
@@ -82,11 +82,11 @@ public class User {
 	public String toString() {
 		String info = "All Vehicles: \n\n";
 		
-		for (int i = 0; i < this.vehicles.length; i++){
+		for (int i = 0; i < this.vehicleList.size(); i++){
 			if (i == this.defaultVehicle){
 				info += "\nDefault Vehicle\n";
 			}
-			info += this.vehicles[i].toString();
+			info += this.vehicleList.get(i).toString();
 			info += "\nVehicle Number: " + i;
 			info += "\n\n";
 		}

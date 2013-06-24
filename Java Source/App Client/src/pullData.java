@@ -32,6 +32,7 @@ public class pullData {
 		{
 			System.out.println("\n\nMenu\n\nCreate User: \tn" +
 								"\nAdd Bike: \ta" +
+								"\nRemove Bike: \tr" +
 								"\nChange Bike: \tc" +
 								"\nDisplay Bike: \td" +
 								"\nGet Gas: \tf" +
@@ -59,6 +60,10 @@ public class pullData {
 			case 'a':
 				System.out.println("Add Vehicle");
 				addVehicle(defaultUser);
+				break;
+			case 'r':
+				System.out.println("Add Vehicle");
+				removeBike(defaultUser);
 				break;
 			case 'c':
 				System.out.println("Change Default Vehicle");
@@ -214,13 +219,41 @@ public class pullData {
 		
 	}
 	
+	public static void removeBike(User defaultUser) {
+		Scanner input = new Scanner(System.in);
+		String info = "";
+		
+		for (int i = 0; i < defaultUser.vehicleList.size(); i++){
+			info += defaultUser.vehicleList.get(i).getVehicleName();
+			info += "\nVehicle Number: " + i;
+			info += "\n\n";
+		}
+		
+		System.out.println(info + "\n\nWhich vehicle to remove?");
+	
+		int def = input.nextInt();
+		
+		defaultUser.removeVehicle(def);
+		
+		info = "";
+		
+		for (int i = 0; i < defaultUser.vehicleList.size(); i++){
+			info += defaultUser.vehicleList.get(i).getVehicleName();
+			info += "\nVehicle Number: " + i;
+			info += "\n\n";
+		}
+		
+		System.out.println(info);
+		
+	}
+	
 	public static void changeVehicle(User defaultUser){
 		Scanner input = new Scanner(System.in);
 		
 		String info = "All Vehicles: \n\n";
 		
-		for (int i = 0; i < defaultUser.vehicles.length; i++){
-			info += defaultUser.vehicles[i].getVehicleName();
+		for (int i = 0; i < defaultUser.vehicleList.size(); i++){
+			info += defaultUser.vehicleList.get(i).getVehicleName();
 			info += "\nVehicle Number: " + i;
 			info += "\n\n";
 		}
@@ -246,8 +279,8 @@ public class pullData {
 
 		gas = input.nextDouble();
 		
-		if (defaultUser.vehicles[defaultVehicle].getVehicleCurrentGasAmount() + gas <= defaultUser.vehicles[defaultVehicle].getVehicleGasTankSize()) {
-			defaultUser.vehicles[defaultVehicle].setVehicleCurrentGasAmount(gas + defaultUser.vehicles[defaultVehicle].getVehicleCurrentGasAmount());
+		if (defaultUser.vehicleList.get(defaultVehicle).getVehicleCurrentGasAmount() + gas <= defaultUser.vehicleList.get(defaultVehicle).getVehicleGasTankSize()) {
+			defaultUser.vehicleList.get(defaultVehicle).setVehicleCurrentGasAmount(gas + defaultUser.vehicleList.get(defaultVehicle).getVehicleCurrentGasAmount());
 		}
 		else {
 			System.out.println("Don't Overfill Tank\n");
@@ -256,7 +289,7 @@ public class pullData {
 	
 	public static void fillTankFull(User defaultUser){
 
-		defaultUser.vehicles[defaultUser.getDefaultVehicle()].setVehicleCurrentGasAmount(defaultUser.vehicles[defaultUser.getDefaultVehicle()].getVehicleGasTankSize());
+		defaultUser.vehicleList.get(defaultUser.getDefaultVehicle()).setVehicleCurrentGasAmount(defaultUser.vehicleList.get(defaultUser.getDefaultVehicle()).getVehicleGasTankSize());
 
 	}
 	
@@ -266,11 +299,11 @@ public class pullData {
 		
 		int defaultVehicle = defaultUser.getDefaultVehicle();
 		
-		gas = defaultUser.vehicles[defaultVehicle].getVehicleCurrentGasAmount();
+		gas = defaultUser.vehicleList.get(defaultVehicle).getVehicleCurrentGasAmount();
 		
 		if (gas - gasUsed >= 0){
 			gas -= gasUsed;
-			defaultUser.vehicles[defaultVehicle].setVehicleCurrentGasAmount(gas);
+			defaultUser.vehicleList.get(defaultVehicle).setVehicleCurrentGasAmount(gas);
 			return true;
 		}
 		
@@ -281,14 +314,14 @@ public class pullData {
 	public static void milesDriven(User defaultUser, double milesDriven){
 		
 		int defaultVehicle = defaultUser.getDefaultVehicle();
-		double mpg = defaultUser.vehicles[defaultVehicle].getVehicleAverageMPG();
-		double gas = defaultUser.vehicles[defaultVehicle].getVehicleCurrentGasAmount();
+		double mpg = defaultUser.vehicleList.get(defaultVehicle).getVehicleAverageMPG();
+//		double gas = defaultUser.vehicleList.get(defaultVehicle).getVehicleCurrentGasAmount();
 		
 		double gasUsed = milesDriven / mpg;
 		
 		if (useGas(defaultUser, gasUsed)){
 
-		defaultUser.vehicles[defaultVehicle].setVehicleOdometer(milesDriven + defaultUser.vehicles[defaultVehicle].getVehicleOdometer());
+		defaultUser.vehicleList.get(defaultVehicle).setVehicleOdometer(milesDriven + defaultUser.vehicleList.get(defaultVehicle).getVehicleOdometer());
 		
 		}
 		
