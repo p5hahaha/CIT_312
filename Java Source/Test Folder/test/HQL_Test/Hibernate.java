@@ -51,8 +51,22 @@ public class Hibernate {
 		Transaction transaction = session.beginTransaction();
 		
 		MyUser newUser = new MyUser();
-		newUser.setUname("jason");
-		newUser.setPword("okDokey");
+		newUser.setUname(username);
+		newUser.setPword(password);
+		
+		session.save(newUser);
+		transaction.commit();
+	}
+	
+	public void createUser(String username, String password, String firstName, String lastName){
+		Session session = createSession();
+		Transaction transaction = session.beginTransaction();
+		
+		MyUser newUser = new MyUser();
+		newUser.setUname(username);
+		newUser.setPword(password);
+		newUser.setFirst_name(firstName);
+		newUser.setLast_name(lastName);
 		
 		session.save(newUser);
 		transaction.commit();

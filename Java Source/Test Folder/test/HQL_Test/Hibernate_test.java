@@ -6,7 +6,7 @@ public class Hibernate_test {
 	
 	public static void main(String[] args){
 		Hibernate hibernate = new Hibernate();
-		hibernate.createUser("Jason","somePassword");
+		hibernate.createUser("Craig","asdlkfj", "Craig", "sdfjlk");
 		hibernate.showAllUsers();
 	}
 }
