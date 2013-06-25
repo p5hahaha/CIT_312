@@ -22,9 +22,9 @@ public class Controller {
 		System.out.println("Controller is running");
 	}
 	
-	public CommandBean command(String s, HashMap<String, String> a){
-		if(commandMap.containsKey(s)) {
-		commandHandler = commandMap.get(s);
+	public CommandBean command(String command, HashMap<String, String> a){
+		if(commandMap.containsKey(command)) {
+		commandHandler = commandMap.get(command);
 		} else {
 			commandHandler = commandMap.get("error");
 		}
