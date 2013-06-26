@@ -9,15 +9,17 @@ import test.MVC.*;
 public class Controller {
 	
 	private HashMap<String, GenericCommand> commandMap;
-	GenericCommand commandHandler;
-	Hibernate hibernate;
+	private Hibernate hibernate;
+	private GenericCommand commandHandler;
 	
 	public Controller(){
+		hibernate = new Hibernate();
 		commandMap = new HashMap<String, GenericCommand>();
+		
+		commandMap.put("createUser", new test.MVC.CreateUser());
 		commandMap.put("getUser", new test.MVC.GetUser());
 		commandMap.put("login", new test.MVC.ClientLogin());
 		commandMap.put("error", new test.MVC.Error());
-		hibernate = new Hibernate();
 		
 		System.out.println("Controller is running");
 	}

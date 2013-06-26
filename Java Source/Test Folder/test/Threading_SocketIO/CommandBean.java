@@ -12,6 +12,10 @@ public class CommandBean implements Serializable{
 	String command;
 	HashMap<String, String> data;
 
+	public CommandBean(){
+		
+	}
+	
 	public CommandBean(String c, String key, String d){
 		this.command = c;
 		data = new HashMap<String, String>();
@@ -27,21 +31,5 @@ public class CommandBean implements Serializable{
 	
 		this.data.put(key, value);
 	}
-
-	/*public String getCommand() {
-		return command;
-	}
-
-	public void setCommand(String command) {
-		this.command = command;
-	}
-
-	public String getData() {
-		return data;
-	}
-
-	public void setData(String data) {
-		this.data = data;
-	}*/
 
 }

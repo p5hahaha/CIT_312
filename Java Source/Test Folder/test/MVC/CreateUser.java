@@ -2,14 +2,13 @@ package test.MVC;
 
 import java.util.HashMap;
 
-import javax.xml.ws.handler.Handler;
 import javax.xml.ws.handler.MessageContext;
 
 import test.HQL_Test.Hibernate;
 import test.Threading_SocketIO.CommandBean;
 
-public class ClientLogin extends GenericCommand{
-	
+public class CreateUser extends GenericCommand{
+
 	@Override
 	public void close(MessageContext arg0) {
 		// TODO Auto-generated method stub
@@ -30,8 +29,17 @@ public class ClientLogin extends GenericCommand{
 
 	@Override
 	public CommandBean action(HashMap<String, String> a, Hibernate hibernate) {
+		CommandBean replyBean = new CommandBean();
 		
-		return new CommandBean("login", new HashMap<String, String>());
+		if (a.containsKey("username") && a.containsKey("password")){
+			hibernate.createUser(a.get("username"), a.get("password"), a.get("firstName"), a.get("lastName"));
+		} else {
+			
+		}
+		
+		
+		return replyBean;
 	}
+	
 
 }

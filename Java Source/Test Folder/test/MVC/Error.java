@@ -4,12 +4,13 @@ import java.util.HashMap;
 
 import javax.xml.ws.handler.MessageContext;
 
+import test.HQL_Test.Hibernate;
 import test.Threading_SocketIO.CommandBean;
 
 public class Error extends GenericCommand{
 
 	@Override
-	public CommandBean action(HashMap<String, String> a){
+	public CommandBean action(HashMap<String, String> a, Hibernate hibernate){
 		HashMap<String, String> e = new HashMap<String, String>();
 		e.put("errorCode", "Incorrect Command");
 		return new CommandBean("error", e);

@@ -55,7 +55,7 @@ public class Client {
 				a.put("password", "super");
 				
 				
-				jsonOut.writeObject(new CommandBean("login", a));
+				jsonOut.writeObject(new CommandBean("createUser", a));
 				commandFromServer = (CommandBean) jsonIn.readObject();
 				System.out.println("Command from server: " + commandFromServer.command);
 				
