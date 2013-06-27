@@ -12,7 +12,6 @@ public class GetUser extends GenericCommand{
 	
 	public GetUser(Hibernate hibernate) {
 		super(hibernate);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

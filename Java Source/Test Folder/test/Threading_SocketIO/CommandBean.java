@@ -27,6 +27,22 @@ public class CommandBean implements Serializable{
 		data = h;
 	}
 	
+	public String getCommand() {
+		return command;
+	}
+
+	public void setCommand(String command) {
+		this.command = command;
+	}
+
+	public HashMap<String, String> getData() {
+		return data;
+	}
+
+	public void setData(HashMap<String, String> data) {
+		this.data = data;
+	}
+
 	public void addValue(String key, String value){
 	
 		this.data.put(key, value);

@@ -16,9 +16,9 @@ public class Controller {
 		hibernate = new Hibernate();
 		commandMap = new HashMap<String, GenericCommand>();
 		
-		commandMap.put("createUser", new test.MVC.CreateUser());
-		commandMap.put("getUser", new test.MVC.GetUser());
-		commandMap.put("login", new test.MVC.ClientLogin());
+		commandMap.put("createUser", new test.MVC.CreateUser(hibernate));
+		commandMap.put("getUser", new test.MVC.GetUser(hibernate));
+		commandMap.put("login", new test.MVC.ClientLogin(hibernate));
 		commandMap.put("error", new test.MVC.Error());
 		
 		System.out.println("Controller is running");

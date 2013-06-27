@@ -53,11 +53,29 @@ public class Client {
 				HashMap<String, String> a = new HashMap<String, String>();
 				a.put("username", "jason");
 				a.put("password", "super");
-				
+				a.put("firstName", "Jason");
+				a.put("lastName", "Ransom");
 				
 				jsonOut.writeObject(new CommandBean("createUser", a));
 				commandFromServer = (CommandBean) jsonIn.readObject();
 				System.out.println("Command from server: " + commandFromServer.command);
+				
+				a.clear();
+				a.put("username", "jason");
+				a.put("password", "super1");
+				
+				jsonOut.writeObject(new CommandBean("login", a));
+				commandFromServer = (CommandBean) jsonIn.readObject();
+				System.out.println("Command from server: " + commandFromServer.command + "\nData: "+ commandFromServer.data.toString());
+				
+				a.clear();
+				a.put("username", "jason");
+				a.put("password", "super");
+				
+				jsonOut.writeObject(new CommandBean("login", a));
+				commandFromServer = (CommandBean) jsonIn.readObject();
+				System.out.println("Command from server: " + commandFromServer.command + "\nData: "+ commandFromServer.data.toString());
+				
 				
 				jsonOut.writeObject(new CommandBean("bye", a));
 				commandFromServer = (CommandBean) jsonIn.readObject();

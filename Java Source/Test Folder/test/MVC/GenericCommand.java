@@ -8,7 +8,11 @@ import test.HQL_Test.Hibernate;
 import test.Threading_SocketIO.CommandBean;
 
 public abstract class GenericCommand implements Handler{
-	private Hibernate hibernate;
+	protected Hibernate hibernate;
+	
+	public GenericCommand(){
+		
+	}
 	
 	public GenericCommand(Hibernate hibernate){
 		this.hibernate = hibernate;

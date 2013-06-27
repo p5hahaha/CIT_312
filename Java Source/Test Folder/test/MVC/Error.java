@@ -9,8 +9,13 @@ import test.Threading_SocketIO.CommandBean;
 
 public class Error extends GenericCommand{
 
+	public Error() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
-	public CommandBean action(HashMap<String, String> a, Hibernate hibernate){
+	public CommandBean action(HashMap<String, String> a){
 		HashMap<String, String> e = new HashMap<String, String>();
 		e.put("errorCode", "Incorrect Command");
 		return new CommandBean("error", e);
