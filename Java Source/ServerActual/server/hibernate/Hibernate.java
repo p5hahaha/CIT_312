@@ -1,20 +1,21 @@
-package test.HQL_Test;
+package server.hibernate;
 
 import org.hibernate.*;
+
+import server.exception.InvalidUserException;
+import server.hibernate.tableClasses.User;
+import server.hibernate.tableClasses.UserSession;
 
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import test.HQL_Test.*;
-import test.exceptions.InvalidUserException;
 
 public class Hibernate {
 
 	private SessionFactory sessionFactory;
-	private HashMap<String, Object> hibernateCommands = new HashMap<String, Object>();
 
 	public Hibernate(){
-		sessionFactory = HibernateUtilSingleton2.getSessionFactory();
+		sessionFactory = HibernateUtilSingleton.getSessionFactory();
 	}
 
 	Session createSession(){
@@ -26,17 +27,17 @@ public class Hibernate {
 			Session session = createSession();
 			Transaction transaction = session.beginTransaction();
 
-			List<MyUser> resultSet;
-			HashMap<Integer, MyUser> users = new HashMap<Integer, MyUser>();
+			List<User> resultSet;
+			HashMap<Integer, User> users = new HashMap<Integer, User>();
 			Iterator iterator;
 
-			Query allUsersQuery = session.createQuery("SELECT u from MyUser as u");
-			resultSet = (List<MyUser>) allUsersQuery.list();
+			Query allUsersQuery = session.createQuery("SELECT u from User as u");
+			resultSet = (List<User>) allUsersQuery.list();
 
 			iterator = resultSet.iterator();
 			while(iterator.hasNext()){
-				MyUser temp = (MyUser) iterator.next();
-				users.put(temp.getId(), (MyUser)temp);
+				User temp = (User) iterator.next();
+				users.put(temp.getId(), (User)temp);
 			}
 
 			System.out.println(users.toString());
@@ -55,7 +56,7 @@ public class Hibernate {
 			Session session = createSession();
 			Transaction transaction = session.beginTransaction();
 
-			MyUser newUser = new MyUser();
+			User newUser = new User();
 			newUser.setUname(username);
 			newUser.setPword(password);
 
@@ -84,7 +85,7 @@ public class Hibernate {
 
 			Transaction transaction = session.beginTransaction();
 
-			MyUser newUser = new MyUser();
+			User newUser = new User();
 			newUser.setUname(username);
 			newUser.setPword(password);
 			newUser.setFirst_name(firstName);
@@ -105,7 +106,7 @@ public class Hibernate {
 		Session session = createSession();
 		Transaction transaction = session.beginTransaction();
 		
-		String sqlQuery = "SELECT count(*) as COUNT FROM MyUser u "
+		String sqlQuery = "SELECT count(*) as COUNT FROM User u "
 				+ " WHERE uname = :bp_username "
 				+ " AND pword = :bp_password "
 				;
@@ -129,9 +130,8 @@ public class Hibernate {
 		Session session = createSession();
 		Transaction transaction = session.beginTransaction();
 		
-		UserSession newSession = new UserSession();
+		UserSession newSession = new server.hibernate.tableClasses.UserSession();
 		newSession.setAndroidId("A2fjflsdfkljdsf");
-		
 		
 	}
 }

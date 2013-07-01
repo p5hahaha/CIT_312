@@ -1,13 +1,15 @@
-package test.MVC;
+package server.MVC.controllerCommands;
+
+import server.CommandBean;
+import server.hibernate.Hibernate;
 
 import java.util.HashMap;
 
 import javax.xml.ws.handler.Handler;
 import javax.xml.ws.handler.MessageContext;
 
-import test.HQL_Test.Hibernate;
-import test.Threading_SocketIO.CommandBean;
-import test.exceptions.InvalidUserException;
+import server.exception.InvalidUserException;
+
 
 public class ClientLogin extends GenericCommand{
 	

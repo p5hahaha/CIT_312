@@ -1,8 +1,10 @@
 package test;
 
-import java.util.HashMap;
 
-import test.Ryan.*;
+import java.util.Date;
+import java.util.UUID;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 //import test.Threading_SocketIO.ListeningServer;
 
@@ -10,17 +12,10 @@ import test.Ryan.*;
 public class TestMain {
 
 	public static void main(String[] args) {
-		HashMap<String, Vehicle> vechicleList = new HashMap<String, Vehicle>();
 		
-		vechicleList.put("Ryan", new Vehicle("Harley", 1988, "Ninja", 4.3, 199, "Ryan"));
-		vechicleList.put("please", new Vehicle("Harley", 1988, "Ninja", 4.3, 199, "please"));
+		Date test = new Date(System.currentTimeMillis()); 
+		UUID test2 = UUID.randomUUID();
 		
-
-		
-		System.out.println(vechicleList.toString() + '\n');
-		
-		System.out.println("Number of things in the list = " + Integer.toString(vechicleList.size()));
-		
-		System.out.println("Number of things in the list = " + Integer.toString(vechicleList.size()));
+		System.out.println(test2.toString());		
 	}
 }
