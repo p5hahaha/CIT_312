@@ -9,11 +9,12 @@ public class CommandBean implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	String command;
-	HashMap<String, String> data;
+	private String command;
+	private HashMap<String, String> data;
 
 	public CommandBean(){
-		
+		data = new HashMap<String, String>();
+		command = new String();
 	}
 	
 	public CommandBean(String c, String key, String d){
@@ -46,6 +47,13 @@ public class CommandBean implements Serializable{
 	public void addValue(String key, String value){
 	
 		this.data.put(key, value);
+	}
+	
+	public String toString(){
+		String string;
+		string = "Command: " + this.command + "\nHashMap: " + this.data.toString(); 
+		
+		return string;
 	}
 
 }

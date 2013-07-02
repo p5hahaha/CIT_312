@@ -1,6 +1,6 @@
 package server.hibernate.tableClasses;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,6 +18,7 @@ public class UserSession {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO, generator="my_user_session_generator")
 	@SequenceGenerator(name="my_user_session_generator", sequenceName="student.s1_user_session")
+	@Column (name = "session_id")
 	private int session_id;
 
 	@GeneratedValue(generator="my_user_session_number_generator")

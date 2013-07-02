@@ -1,29 +1,28 @@
 package server;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.OutputStream;
 import java.net.Socket;
+import java.util.HashMap;
 
 import org.quickconnectfamily.json.JSONException;
 import org.quickconnectfamily.json.JSONInputStream;
 import org.quickconnectfamily.json.JSONOutputStream;
 
 import server.MVC.Controller;
+import server.CommandBean; 
 
 public class ServerClientInteraction implements Runnable{
 	private Socket fromClientSocket;
 	private Controller localControl;
 
-	private ObjectInputStream jsonIn;
-	private ObjectOutputStream jsonOut;
+	private JSONInputStream jsonIn;
+	private JSONOutputStream jsonOut;
 
 	private CommandBean requestFromClient;
 	private CommandBean replyToClient;
 
 	private int failureCount;
+	private final int FAILURECOUNT = 4;
 
 	ServerClientInteraction(Socket s, Controller c){
 		this.fromClientSocket = s;
@@ -33,37 +32,53 @@ public class ServerClientInteraction implements Runnable{
 	public void run(){
 
 		try {
-			System.out.println(Thread.currentThread().getName());
-			jsonIn = new ObjectInputStream(fromClientSocket.getInputStream());
-			jsonOut = new ObjectOutputStream(fromClientSocket.getOutputStream());
 
 			boolean loop = true;
 			failureCount = 0;
 
-			while(loop && !fromClientSocket.isClosed() && failureCount < 3) {
+			while(loop && !fromClientSocket.isClosed() && failureCount < FAILURECOUNT) {
 				try{
-					requestFromClient = (CommandBean) jsonIn.readObject();
+					jsonIn = new JSONInputStream(fromClientSocket.getInputStream());
+					jsonOut = new JSONOutputStream(fromClientSocket.getOutputStream());
 
-					replyToClient = localControl.command(requestFromClient.command, requestFromClient.data);
+					HashMap hashRequestFromClient = (HashMap) jsonIn.readObject();
+					requestFromClient = this.createCommandBean(hashRequestFromClient);
 
-					jsonOut.writeObject(replyToClient);
-					if (requestFromClient.command == "bye")
+
+					int check = requestFromClient.getCommand().compareToIgnoreCase("bye");
+					if (check == 0 )
 						loop = false;
 
-				} catch( IOException e){
-					failureCount++;
-					e.printStackTrace();
-				} catch (ClassNotFoundException e) {
+					System.out.println(requestFromClient.toString());
+					replyToClient = localControl.command(requestFromClient.getCommand(), requestFromClient.getData());
+
+					try {
+						jsonOut.writeObject(replyToClient);
+					} catch (JSONException e){
+						System.out.println("Can't write object");
+						e.printStackTrace();
+					}
+
+
+				} catch (JSONException e) {
 					failureCount++;
 					e.printStackTrace();
 				}
 			}
-
-
 			fromClientSocket.close(); //Clean-up
 		} catch (IOException e) {
 			e.printStackTrace();			
 			return;
 		}
+	}
+
+	private CommandBean createCommandBean(HashMap a) {
+		CommandBean cb = new CommandBean();
+
+		cb.setCommand((String)a.get("command"));
+		cb.setData((HashMap)a.get("data"));
+
+
+		return cb;
 	}
 }

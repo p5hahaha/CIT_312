@@ -15,12 +15,14 @@ public class ServerListener{
 		ServerSocket serverSocket;
 		int port = 9292;
 
-		Executor organizer = Executors.newCachedThreadPool();
-		Controller controller = new Controller();
+		Executor organizer;
+		Controller controller;
 
 		try {
 			serverSocket = new ServerSocket(port);	//Creates a socket that is ready to listen on the port indicated
-
+			organizer = Executors.newCachedThreadPool();
+			controller = new Controller();
+			
 			while (true){
 				ServerClientInteraction session 
 				= new ServerClientInteraction(serverSocket.accept(), controller); 

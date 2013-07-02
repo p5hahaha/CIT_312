@@ -56,9 +56,11 @@ public class HibernateUtilSingleton
 			config.setProperty("hibernate.current_session_context_class", "thread");
 
 
-
+			System.out.println("Adding Hibernate Table/Classes");
 			config.addAnnotatedClass(User.class);
-
+			config.addAnnotatedClass(UserSession.class);
+			System.out.println("Done adding Hibernate Table/Classes");
+			
 			sessionFactory = config.buildSessionFactory();
 
 		}

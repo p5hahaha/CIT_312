@@ -39,14 +39,16 @@ public class ClientLogin extends GenericCommand{
 	@Override
 	public CommandBean action(HashMap<String, String> a) {
 		CommandBean replyBean = new CommandBean();
-		String session;
+		int userId;
 		
 		try {
 			if(a.containsKey("username") && a.containsKey("password")){
-				session = this.hibernate.loginUser(a.get("username"), a.get("password"));
+				String session = "";
+				userId = this.hibernate.loginUser(a.get("username"), a.get("password"));
+				session = this.hibernate.createUserSession(userId,a);
 				replyBean.setCommand("loginUser");
 				replyBean.addValue("status", "success");
-				replyBean.addValue("session", "1234");
+				replyBean.addValue("session", session);
 			} else {
 				throw new InvalidUserException("Must contain a username and password");
 			}

@@ -1,4 +1,4 @@
-package hibernate.tableClasses;
+package server.hibernate.tableClasses;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

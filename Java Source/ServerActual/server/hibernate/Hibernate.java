@@ -6,9 +6,11 @@ import server.exception.InvalidUserException;
 import server.hibernate.tableClasses.User;
 import server.hibernate.tableClasses.UserSession;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.UUID;
 
 public class Hibernate {
 
@@ -82,7 +84,6 @@ public class Hibernate {
 
 		try{
 			Session session = createSession();
-
 			Transaction transaction = session.beginTransaction();
 
 			User newUser = new User();
@@ -100,38 +101,59 @@ public class Hibernate {
 		return success;
 	}
 
-	public String loginUser(String username, String password){
-		String sessionString = new String();
-		
+	public String createUserSession(int userId,HashMap<String, String> a){
 		Session session = createSession();
 		Transaction transaction = session.beginTransaction();
+
+		Date creationDate = new Date(System.currentTimeMillis());
+
+		UserSession newSession = new server.hibernate.tableClasses.UserSession();
+
+		newSession.setSessionNumber(UUID.randomUUID().toString());
+		newSession.setUserId(userId);
 		
-		String sqlQuery = "SELECT count(*) as COUNT FROM User u "
+		if (a.containsKey("androidId")){
+			newSession.setAndroidId(a.get("androidId"));
+		}
+		
+		newSession.setCreatedBy(userId);
+		newSession.setCreationDate(creationDate);
+		newSession.setLastUpdatedBy(userId);
+		newSession.setLastUpdateDate(creationDate);
+
+		session.save(newSession);
+		transaction.commit();
+
+		return newSession.getSessionNumber();
+	}
+
+	public int loginUser(String username, String password) throws InvalidUserException{
+		int userId = 0;
+
+		Session session = createSession();
+		Transaction transaction = session.beginTransaction();
+
+		String sqlQuery = "SELECT u.user_id as COUNT FROM User u "
 				+ " WHERE uname = :bp_username "
 				+ " AND pword = :bp_password "
 				;
-		
-		List<Long> resultSet =(List<Long>) session.createQuery(sqlQuery)
+
+		List<Integer> resultSet =(List<Integer>) session.createQuery(sqlQuery)
 				.setText("bp_username", username)
 				.setText("bp_password", password)
 				.list();
-		
-		if (resultSet.get(0) != 0){
-			
-		} else {
-			System.out.println("We missed");
+
+		if (resultSet.size() > 0){
+
+			System.out.println("The size is: " + Integer.toString(resultSet.size()));
+			System.out.println("Userid: " + Integer.toString(resultSet.get(0)));
+			userId = (int)resultSet.get(0);
+		} else{
+			System.out.println("FAIL");
+			throw new InvalidUserException("Incorrect Username or Password.");
 		}
-		
-		
+
 		transaction.commit();
-		return sessionString;
-	}
-	public void createUserSession(){
-		Session session = createSession();
-		Transaction transaction = session.beginTransaction();
-		
-		UserSession newSession = new server.hibernate.tableClasses.UserSession();
-		newSession.setAndroidId("A2fjflsdfkljdsf");
-		
+		return  userId;
 	}
 }
