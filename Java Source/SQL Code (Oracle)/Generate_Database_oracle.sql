@@ -47,7 +47,7 @@ END;
 
 CREATE TABLE user_session
 ( session_id		INT PRIMARY KEY
-, session_number	VARCHAR2(32)
+, session_number	VARCHAR2(36)
 , user_id			INT
 , android_id		VARCHAR2(16)
 , created_by		INT
