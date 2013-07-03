@@ -59,7 +59,6 @@ public class ServerClientInteraction implements Runnable{
 						e.printStackTrace();
 					}
 
-
 				} catch (JSONException e) {
 					failureCount++;
 					e.printStackTrace();
