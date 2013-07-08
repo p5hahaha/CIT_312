@@ -17,32 +17,33 @@ import test.Threading_SocketIO.CommandBean;
 public class TestMain {
 
 	public static void main(String[] args) {
-		ServerSocket serverSocket;
-		Socket socket;
-		JSONInputStream jsonIn;
-		HashMap hashMap;
-		
-		try {
-			serverSocket = new ServerSocket(9292);
-			socket = serverSocket.accept();
-			HashMap<String, String> data = new HashMap<String, String>();
-			
-			jsonIn = new JSONInputStream(socket.getInputStream());
-			
-			hashMap = (HashMap)jsonIn.readObject();
-			
-			CommandBean newCommandBean = new CommandBean((String)hashMap.get("command"), (HashMap)hashMap.get("data"));
-			System.out.println(newCommandBean.getCommand());
-			
-			//System.out.println(hashMap.toString());
-			
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		new HTTP_URL_JSON_Test();
+//		ServerSocket serverSocket;
+//		Socket socket;
+//		JSONInputStream jsonIn;
+//		HashMap hashMap;
+//		
+//		try {
+//			serverSocket = new ServerSocket(9292);
+//			socket = serverSocket.accept();
+//			HashMap<String, String> data = new HashMap<String, String>();
+//			
+//			jsonIn = new JSONInputStream(socket.getInputStream());
+//			
+//			hashMap = (HashMap)jsonIn.readObject();
+//			
+//			CommandBean newCommandBean = new CommandBean((String)hashMap.get("command"), (HashMap)hashMap.get("data"));
+//			System.out.println(newCommandBean.getCommand());
+//			
+//			//System.out.println(hashMap.toString());
+//			
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (JSONException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 
 
 

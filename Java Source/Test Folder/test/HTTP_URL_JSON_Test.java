@@ -27,7 +27,7 @@ public class HTTP_URL_JSON_Test {
 		String sortType = "price";
 		String api = "rfej9napna";
 		String url = "http://devapi.mygasfeed.com/stations/radius/"+ lattitude +"/"+longitude+"/10/"+gastype+"/"+sortType+"/"+api+".json";
-		url = "http://www.google.com";
+		//url = "http://www.google.com";
 		
 		String json = new String();
 
@@ -72,15 +72,15 @@ public class HTTP_URL_JSON_Test {
 		System.out.println(url);
 		System.out.println(json);
 
-//		try {
-//			HashMap aMap = (HashMap) JSONUtilities.parse(json);
-//			ArrayList list = (ArrayList) aMap.get("stations");
-//			HashMap firstStation = (HashMap)list.get(0);
-//			System.out.println("The region is "+firstStation.get("region") + " and the distance is "+ firstStation.get("distance"));
-//
-//		} catch (JSONException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		try {
+			HashMap aMap = (HashMap) JSONUtilities.parse(json);
+			ArrayList list = (ArrayList) aMap.get("stations");
+			HashMap firstStation = (HashMap)list.get(0);
+			System.out.println("The region is "+firstStation.get("region") + " and the distance is "+ firstStation.get("distance"));
+
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

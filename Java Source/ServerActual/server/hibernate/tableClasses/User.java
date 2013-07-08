@@ -25,6 +25,15 @@ public class User {
 	@Column(name="last_name", columnDefinition = "VARCHAR2(30)")
 	private String last_name;
 	
+	@Column(name="created_by", columnDefinition = "INT")
+	private String createdBy;
+	@Column(name="creation_date", columnDefinition = "DATE")
+	private String creationDate;
+	@Column(name="last_updated_by", columnDefinition = "INT")
+	private String lastUpdatedBy;
+	@Column(name="last_updated_date", columnDefinition = "DATE")
+	private String lastUpdateDate;
+	
 	public User(){
 		
 	}

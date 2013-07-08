@@ -16,11 +16,16 @@ END;
 /
 
 CREATE TABLE my_user
-( user_id		INT PRIMARY KEY
-, uname			VARCHAR2(30)
-, pword			VARCHAR2(65)
-, first_name	VARCHAR2(30)
-, last_name		VARCHAR2(30)	
+( user_id				INT PRIMARY KEY
+, uname					VARCHAR2(30)
+, pword					VARCHAR2(65)
+, first_name			VARCHAR2(30)
+, last_name				VARCHAR2(30)
+, preferred_vehicle		INT
+, created_by			INT
+, creation_date			DATE
+, last_updated_by		INT
+, last_update_date		DATE
 );
 
 GRANT SELECT, INSERT, UPDATE ON student.my_user to application;
@@ -92,8 +97,6 @@ CREATE TABLE vehicle
 , creation_date			DATE
 , last_updated_by		INT
 , last_update_date		DATE
-, ended_by				INT
-, ended_date			DATE
 );
 
 GRANT SELECT, INSERT, UPDATE ON student.vehicle to application;
