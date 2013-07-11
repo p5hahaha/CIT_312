@@ -59,6 +59,7 @@ public class HibernateUtilSingleton
 			System.out.println("Adding Hibernate Table/Classes");
 			config.addAnnotatedClass(User.class);
 			config.addAnnotatedClass(UserSession.class);
+			config.addAnnotatedClass(Vehicle.class);
 			System.out.println("Done adding Hibernate Table/Classes");
 			
 			sessionFactory = config.buildSessionFactory();

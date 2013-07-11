@@ -85,11 +85,11 @@ END;
 
 CREATE TABLE vehicle
 ( vehicle_id			INT PRIMARY KEY
-, vehicle_name			VARCHAR2(30)
+, name			VARCHAR2(30)
 , user_id				INT
 , vehicle_year			INT
-, vehicle_avg_mpg		NUMBER
-, vehicle_gas_tank_size	NUMBER
+, avg_mpg				NUMBER
+, gas_tank_size			NUMBER
 , current_gas_amount	NUMBER
 , current_odometer		NUMBER
 , vehicle				VARCHAR2(30)

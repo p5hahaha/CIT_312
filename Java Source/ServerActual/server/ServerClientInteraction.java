@@ -42,8 +42,7 @@ public class ServerClientInteraction implements Runnable{
 					jsonOut = new JSONOutputStream(fromClientSocket.getOutputStream());
 
 					HashMap hashRequestFromClient = (HashMap) jsonIn.readObject();
-					requestFromClient = this.createCommandBean(hashRequestFromClient);
-
+					requestFromClient = localControl.command("createCommandBean",hashRequestFromClient);
 
 					int check = requestFromClient.getCommand().compareToIgnoreCase("bye");
 					if (check == 0 )
@@ -69,15 +68,5 @@ public class ServerClientInteraction implements Runnable{
 			e.printStackTrace();			
 			return;
 		}
-	}
-
-	private CommandBean createCommandBean(HashMap a) {
-		CommandBean cb = new CommandBean();
-
-		cb.setCommand((String)a.get("command"));
-		cb.setData((HashMap)a.get("data"));
-
-
-		return cb;
 	}
 }

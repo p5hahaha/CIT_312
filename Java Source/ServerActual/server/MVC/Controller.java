@@ -22,6 +22,7 @@ public class Controller {
 		commandMap.put("createUser", new server.MVC.controllerCommands.CreateUser(hibernate));
 		commandMap.put("getUser", new server.MVC.controllerCommands.GetUser(hibernate));
 		
+		commandMap.put("createCommandBean", new server.MVC.controllerCommands.CreateCommandBean());
 		commandMap.put("error", new server.MVC.controllerCommands.Error());
 		
 		System.out.println("Controller is running");
@@ -35,6 +36,9 @@ public class Controller {
 		}
 		
 		return commandHandler.action(a); 
-		
+	}
+	
+	private CommandBean createCommandBean(HashMap a) {
+		return hibernate.createCommandBean(a);
 	}
 }

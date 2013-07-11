@@ -53,8 +53,8 @@ public class Client {
 				HashMap<String, String> a = new HashMap<String, String>();
 
 				a.clear();
-				a.put("username", "jason");
-				a.put("password", "super1");
+				a.put("username", "superman");
+				a.put("password", "superSecretPassword");
 
 				jsonOut.writeObject(new CommandBean("login", a));
 				commandFromServer = (HashMap) jsonIn.readObject();

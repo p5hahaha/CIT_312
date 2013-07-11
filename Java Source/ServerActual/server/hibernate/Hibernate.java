@@ -2,6 +2,7 @@ package server.hibernate;
 
 import org.hibernate.*;
 
+import server.CommandBean;
 import server.exception.InvalidUserException;
 import server.hibernate.tableClasses.User;
 import server.hibernate.tableClasses.UserSession;
@@ -173,5 +174,14 @@ public class Hibernate {
 			throw new Exception ("Nothing in the result set");
 		}
 		return resultSet.get(0);
+	}
+	
+	public CommandBean createCommandBean(HashMap a) {
+		CommandBean cb = new CommandBean();
+
+		cb.setCommand((String)a.get("command"));
+		cb.setData((HashMap)a.get("data"));
+
+		return cb;
 	}
 }

@@ -19,7 +19,7 @@ public class TestMain {
 	public static void main(String[] args) {
 		new HTTP_URL_JSON_Test();
 		
-		test("1");
+
 		//		ServerSocket serverSocket;
 		//		Socket socket;
 		//		JSONInputStream jsonIn;
