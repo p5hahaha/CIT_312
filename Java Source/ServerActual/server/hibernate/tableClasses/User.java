@@ -31,7 +31,7 @@ public class User {
 	private String creationDate;
 	@Column(name="last_updated_by", columnDefinition = "INT")
 	private String lastUpdatedBy;
-	@Column(name="last_updated_date", columnDefinition = "DATE")
+	@Column(name="last_update_date", columnDefinition = "DATE")
 	private String lastUpdateDate;
 	
 	public User(){

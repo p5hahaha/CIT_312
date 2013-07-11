@@ -48,7 +48,7 @@ public class ClientLogin extends GenericCommand{
 				session = this.hibernate.createUserSession(userId,a);
 				replyBean.setCommand("loginUser");
 				replyBean.addValue("status", "success");
-				replyBean.addValue("session", session);
+				replyBean.addValue("sessionId", session);
 			} else {
 				throw new InvalidUserException("Must contain a username and password");
 			}

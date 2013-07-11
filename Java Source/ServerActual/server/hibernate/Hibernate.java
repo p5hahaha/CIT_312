@@ -51,7 +51,7 @@ public class Hibernate {
 		}
 	}
 
-	public boolean createUser (String username, String password)throws InvalidUserException{
+	public boolean createUser (String username, String password) throws InvalidUserException{
 		boolean success = false;
 
 		try{
@@ -155,5 +155,23 @@ public class Hibernate {
 
 		transaction.commit();
 		return  userId;
+	}
+	
+	public User getUser(String sessionId) throws Exception{
+		Session session = createSession();
+		Transaction transaction = session.beginTransaction();
+		
+		String sqlQuery = "SELECT u "
+				+" FROM UserSession s"
+				+" , User u"
+				+" WHERE s.sessionNumber = :bp_sessionNumber" 
+				+" AND u.user_id = s.userId";
+		List<User> resultSet = (List<User>) session.createQuery(sqlQuery)
+				.setText("bp_sessionNumber", sessionId)
+				.list();
+		if (resultSet.size() == 0){
+			throw new Exception ("Nothing in the result set");
+		}
+		return resultSet.get(0);
 	}
 }

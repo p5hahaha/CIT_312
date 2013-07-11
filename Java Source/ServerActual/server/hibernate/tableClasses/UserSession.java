@@ -2,11 +2,16 @@ package server.hibernate.tableClasses;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -25,8 +30,15 @@ public class UserSession {
 	@GenericGenerator(name="my_user_session_number_generator", strategy = "uuid")
 	@Column (name = "session_number", columnDefinition = "VARCHAR2(32)", unique = true)
 	private String sessionNumber;
+
 	@Column (name = "user_id", columnDefinition = "INT")
+	@JoinTable(name = "student.my_user"
+	, joinColumns = {@JoinColumn(name = "user_id")}
+	, inverseJoinColumns = {@JoinColumn(name="user_id")}
+	)
 	private int userId;
+
+
 	@Column (name = "android_id", columnDefinition = "VARCHAR2(16)")
 	private String androidId;
 
@@ -43,6 +55,7 @@ public class UserSession {
 	private int endedBy;
 	@Column (name = "end_date", columnDefinition = "DATE")
 	private Date endDate ;
+
 
 	public UserSession(){
 		Date tempDate = new Date(System.currentTimeMillis());
