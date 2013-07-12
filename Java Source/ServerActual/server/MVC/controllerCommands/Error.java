@@ -17,7 +17,7 @@ public class Error extends GenericCommand{
 	@Override
 	public CommandBean action(HashMap<String, String> a){
 		HashMap<String, String> e = new HashMap<String, String>();
-		e.put("errorCode", "Incorrect Command");
+		e.put("errorCode", "Incorrect Command or no data");
 		return new CommandBean("error", e);
 	}
 

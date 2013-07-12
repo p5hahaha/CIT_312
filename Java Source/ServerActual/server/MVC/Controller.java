@@ -29,8 +29,10 @@ public class Controller {
 	}
 	
 	public CommandBean command(String command, HashMap<String, String> a){
-		if(commandMap.containsKey(command)) {
-		commandHandler = commandMap.get(command);
+		
+		if(commandMap.containsKey(command) && a != null) {
+			
+			commandHandler = commandMap.get(command);
 		} else {
 			commandHandler = commandMap.get("error");
 		}

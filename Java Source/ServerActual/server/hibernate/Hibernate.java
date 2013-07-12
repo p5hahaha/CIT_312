@@ -16,6 +16,7 @@ import java.util.UUID;
 public class Hibernate {
 
 	private SessionFactory sessionFactory;
+	private final int ANDROIDIDLENGTH = 16;
 
 	public Hibernate(){
 		sessionFactory = HibernateUtilSingleton.getSessionFactory();
@@ -52,13 +53,12 @@ public class Hibernate {
 		}
 	}
 
-	public boolean createUser (String username, String password) throws InvalidUserException{
-		boolean success = false;
+	public int createUser (String username, String password) throws InvalidUserException{
+		int userId = 0;
 
+		Session session = createSession();
+		Transaction transaction = session.beginTransaction();
 		try{
-			Session session = createSession();
-			Transaction transaction = session.beginTransaction();
-
 			User newUser = new User();
 			newUser.setUname(username);
 			newUser.setPword(password);
@@ -69,24 +69,19 @@ public class Hibernate {
 
 			session.save(newUser);
 			transaction.commit();
-			success = true;
-		} catch (InvalidUserException e){
-			throw e;
-		}catch (Exception e){
-			success = false;
+			userId = newUser.getId();
+		} catch (Exception e){
+			transaction.rollback();
+			throw new InvalidUserException(e.getMessage());
 		}
-
-
-		return true;
+		return userId;
 	}
 
-	public boolean createUser(String username, String password, String firstName, String lastName){
-		boolean success = false;
-
+	public int createUser(String username, String password, String firstName, String lastName) throws InvalidUserException{
+		int userId = 0;
+		Session session = createSession();
+		Transaction transaction = session.beginTransaction();
 		try{
-			Session session = createSession();
-			Transaction transaction = session.beginTransaction();
-
 			User newUser = new User();
 			newUser.setUname(username);
 			newUser.setPword(password);
@@ -95,14 +90,15 @@ public class Hibernate {
 
 			session.save(newUser);
 			transaction.commit();
-			success = true;
+			userId = newUser.getId();
 		} catch (Exception e){
-			success = false;
+			transaction.rollback();
+			throw new InvalidUserException(e.getMessage());
 		}
-		return success;
+		return userId;
 	}
 
-	public String createUserSession(int userId,HashMap<String, String> a){
+	public String createUserSession (int userId, String androidId) {
 		Session session = createSession();
 		Transaction transaction = session.beginTransaction();
 
@@ -112,11 +108,7 @@ public class Hibernate {
 
 		newSession.setSessionNumber(UUID.randomUUID().toString());
 		newSession.setUserId(userId);
-		
-		if (a.containsKey("androidId")){
-			newSession.setAndroidId(a.get("androidId"));
-		}
-		
+		newSession.setAndroidId(androidId);
 		newSession.setCreatedBy(userId);
 		newSession.setCreationDate(creationDate);
 		newSession.setLastUpdatedBy(userId);
@@ -150,32 +142,33 @@ public class Hibernate {
 			System.out.println("Userid: " + Integer.toString(resultSet.get(0)));
 			userId = (int)resultSet.get(0);
 		} else{
-			System.out.println("FAIL");
 			throw new InvalidUserException("Incorrect Username or Password.");
 		}
 
 		transaction.commit();
 		return  userId;
 	}
-	
+
 	public User getUser(String sessionId) throws Exception{
 		Session session = createSession();
 		Transaction transaction = session.beginTransaction();
-		
+
 		String sqlQuery = "SELECT u "
 				+" FROM UserSession s"
 				+" , User u"
 				+" WHERE s.sessionNumber = :bp_sessionNumber" 
 				+" AND u.user_id = s.userId";
+
 		List<User> resultSet = (List<User>) session.createQuery(sqlQuery)
 				.setText("bp_sessionNumber", sessionId)
 				.list();
 		if (resultSet.size() == 0){
 			throw new Exception ("Nothing in the result set");
 		}
+		transaction.commit();
 		return resultSet.get(0);
 	}
-	
+
 	public CommandBean createCommandBean(HashMap a) {
 		CommandBean cb = new CommandBean();
 
@@ -183,5 +176,33 @@ public class Hibernate {
 		cb.setData((HashMap)a.get("data"));
 
 		return cb;
+	}
+
+	public void removeUser(String username, String password, String sessionNumber){
+		Session session = createSession();
+		Transaction transaction = session.beginTransaction();
+		Iterator iterator;
+
+		String sqlQuery = "SELECT u "
+				+" FROM UserSession s"
+				+" , User u"
+				+" WHERE s.sessionNumber = :bp_sessionNumber" 
+				+" AND u.uname = :bp_username"
+				+" AND u.pword = :bp_password"
+				+" AND s.endDate IS NULL";
+
+		List<User> resultSet = (List<User>) session.createQuery(sqlQuery)
+				.setText("bp_sessionNumber", sessionNumber)
+				.setText("bp_username", username)
+				.setText("bp_password", password)
+				.list();
+
+		iterator = resultSet.iterator();
+		while(iterator.hasNext()){
+			User temp = (User) iterator.next();
+			System.out.println(temp.toString());
+			session.delete(temp);
+		}
+		transaction.commit();
 	}
 }

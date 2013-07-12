@@ -26,9 +26,10 @@ CREATE TABLE my_user
 , creation_date			DATE
 , last_updated_by		INT
 , last_update_date		DATE
+, CONSTRAINT uq_my_user_1 UNIQUE (uname)
 );
 
-GRANT SELECT, INSERT, UPDATE ON student.my_user to application;
+GRANT SELECT, INSERT, UPDATE, DELETE ON student.my_user to application; 
 
 CREATE SEQUENCE s1_user;
 

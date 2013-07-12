@@ -12,7 +12,7 @@ import server.exception.InvalidUserException;
 
 
 public class ClientLogin extends GenericCommand{
-	
+
 	public ClientLogin(Hibernate hibernate) {
 		super(hibernate);
 		// TODO Auto-generated constructor stub
@@ -21,7 +21,7 @@ public class ClientLogin extends GenericCommand{
 	@Override
 	public void close(MessageContext arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
@@ -44,21 +44,27 @@ public class ClientLogin extends GenericCommand{
 		try {
 			if(a.containsKey("username") && a.containsKey("password")){
 				String session = "";
-				userId = this.hibernate.loginUser(a.get("username"), a.get("password"));
-				session = this.hibernate.createUserSession(userId,a);
-				replyBean.setCommand("loginUser");
-				replyBean.addValue("status", "success");
-				replyBean.addValue("sessionId", session);
+				if(a.containsKey("androidId")){
+					String androidId = a.get("androidId");
+					userId = this.hibernate.loginUser(a.get("username"), a.get("password"));
+					session = this.hibernate.createUserSession(userId,androidId);
+
+					replyBean.setCommand("loginUser");
+					replyBean.addValue("status", "success");
+					replyBean.addValue("sessionId", session);
+				} else {
+					throw new InvalidUserException("Android Device must supply Android Id");
+				}
 			} else {
 				throw new InvalidUserException("Must contain a username and password");
 			}
-			
+
 		} catch (InvalidUserException e){
 			replyBean.setCommand("error");
 			replyBean.addValue("status", "error");
 			replyBean.addValue("message", e.getMessage());
 		}
-		
+
 		return replyBean;
 	}
 

@@ -40,13 +40,13 @@ public class CreateUser extends GenericCommand{
 	public CommandBean action(HashMap<String, String> a) {
 		CommandBean replyBean = new CommandBean();
 		try {
-
+			
 			if (a.containsKey("username") && a.containsKey("password")){
 				this.hibernate.createUser(a.get("username"), a.get("password"), a.get("firstName"), a.get("lastName"));
 				replyBean.addValue("status", "success");
 				replyBean.addValue("username", a.get("username"));
 			} else {
-				throw new InvalidUserException("Must contain a unique username and password");
+				throw new InvalidUserException("Creating User: Must contain a unique username and password");
 			}
 		} catch (InvalidUserException e){
 			replyBean.addValue("error", e.getMessage());
